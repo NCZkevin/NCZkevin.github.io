@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hexo</title>
+  <title>浪潮之巅| NCZkevin Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="浪潮之巅| NCZkevin Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="浪潮之巅| NCZkevin Blog">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="浪潮之巅| NCZkevin Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/python-爬虫/" style="font-size: 10px;">python 爬虫</a>
 					</div>
 				</section>
 				
@@ -224,13 +224,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>##最简单的爬虫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">html = urlopen(&quot;http://pythonscraping.com/pages/page1.html&quot;) print(html.read())</span><br></pre></td></tr></table></figure>
+<p>上述代码引入request模块，只导入一个urlopen函数，读取页面然后输出。</p>
+<p>##神器“BeautifulSoup”</p>
+<p>BeautifulSoup库是python爬虫神器之一。通过定位HTML标签来格式化和组织复杂的的网络信息，用简单易用的python对象为我们展示XML结构信息。</p>
+<p>###安装BeautifulSoup<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-bs4</span><br></pre></td></tr></table></figure></p>
+<p>mac 系统<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br></pre></td></tr></table></figure></p>
+<p>测试是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$python</span><br><span class="line">&gt; from bs4 import BeautifulSoup</span><br></pre></td></tr></table></figure></p>
+<p>没有错误导入成功</p>
+<p>###运行BeautifulSoup<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page1.html&quot;) bsObj = BeautifulSoup(html.read())</span><br><span class="line">print(bsObj.h1)</span><br></pre></td></tr></table></figure></p>
+<p>输出 <figure class="highlight plain"><figcaption><span>Interesting Title```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">将html内容传入BeautifulSoup对象，然后通过对象提取h1标签。</span><br><span class="line"></span><br><span class="line">###复杂的html解析</span><br><span class="line">BeautifulSoup的find()和findAll()函数将是我们最常用的函数。</span><br></pre></td></tr></table></figure></p>
+<p>findAll(tag, attributes, recursive, text, limit, keywords)<br>find(tag, attributes, recursive, text, keywords)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在大部分时间里我们只会使用前两个参数。</span><br><span class="line">tag参数-传一个或者多个标签名称</span><br></pre></td></tr></table></figure></p>
+<p>.findAll({“h1”,”h2”})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attrubutes参数-用一个字典封装的若干属性和对应的属性值</span><br></pre></td></tr></table></figure></p>
+<p>.findAll(“span”,{“class”:{“green”,”red”}})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">其他参数请参照[文档][1]</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  [1]: http://www.bs4.com</span><br><span class="line">  </span><br><span class="line">###BeautifulSoup对象</span><br><span class="line"></span><br><span class="line"> - BeautifulSoup对象</span><br><span class="line"> - 标签tag对象</span><br><span class="line"> - NavigableString对象</span><br><span class="line"> - Comment对象</span><br><span class="line"></span><br><span class="line">###BeautifulSoup导航树</span><br><span class="line">1.处理子标签和其他后代标签</span><br><span class="line"></span><br><span class="line">子标签室一个父标签的下一级，后代标签是指一个父标签下面所有级别的标签。一般情况下，beautifulsoup函数总是处理当前标签的后代标签。</span><br><span class="line">bsObj.div.findAll(&apos;img’)会找出文档中的第一个div标签，获取这个div后代里所有的img标签列表。</span><br><span class="line">只想找出子标签可以用.children标签</span><br></pre></td></tr></table></figure></p>
+<p>from urllib.request import urlopen<br>from bs4 import BeautifulSoup<br>html = urlopen(“<a href="http://www.pythonscraping.com/pages/page3.html" target="_blank" rel="external">http://www.pythonscraping.com/pages/page3.html</a>“)<br>bsObj = BeautifulSoup(html)<br>for child in bsObj.find(“table”,{“id”:”giftList”}).children:<br>print(child)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.处理兄弟标签</span><br></pre></td></tr></table></figure></p>
+<p>from urllib.request import urlopen<br>from bs4 import BeautifulSoup<br>html = urlopen(“<a href="http://www.pythonscraping.com/pages/page3.html" target="_blank" rel="external">http://www.pythonscraping.com/pages/page3.html</a>“) bsObj = BeautifulSoup(html)<br>for sibling in bsObj.find(“table”,{“id”:”giftList”}).tr.next_siblings: print(sibling)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这段代码会打印产品列表里的所有行的产品,第一行表格标题除外。对象不能把自己作为兄弟标签。任何时候你获取一个标签的兄弟标签,都不会包含这个标签本身。其次,这个函数只调用后面的兄弟标签。</span><br><span class="line"></span><br><span class="line">3.父标签处理</span><br><span class="line">在特殊情况下你也会用BeautifulSoup 的父标签查找函数,parent和parents。例如:</span><br></pre></td></tr></table></figure></p>
+<p>from urllib.request import urlopen<br>from bs4 import BeautifulSoup<br>html = urlopen(“<a href="http://www.pythonscraping.com/pages/page3.html" target="_blank" rel="external">http://www.pythonscraping.com/pages/page3.html</a>“)<br>bsObj = BeautifulSoup(html)<br>print(bsObj.find(“img”,{“src”:”../img/gifts/img1.jpg”}).parent.previous_sibling.get_text())<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这段代码会打印 ../img/gifts/img1.jpg 这个图片对应商品的价格(这个示例中价格是15.00)。</span><br><span class="line">这是如何实现的呢?下面的图形是我们正在处理的 HTML页面的部分结构,用数字表示步骤的话:</span><br></pre></td></tr></table></figure></p>
+<p><tr><br>–<td><br>–</td><td><br>–</td><td>(3)<br>    –”15.00” (4)<br> –</td><td>(2)<br>    –<img src="./img/gifts/img1.jpg"> (1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(1) 选择图片标签src=&quot;../img/gifts/img1.jpg&quot;;</span><br><span class="line">(2) 选择图片标签的父标签(在示例中是 &lt;td&gt; 标签);</span><br><span class="line">(3) 选择 &lt;td&gt;标签的前一个兄弟标签previous_sibling(在示例中是包含美元价格的 &lt;td&gt;标签);</span><br><span class="line">(4) 选择标签中的文字,“$15.00”。</span><br><span class="line"> </span><br><span class="line">###正则表达式</span><br><span class="line">###正则表达式和BeautifulSoup结合使用</span><br><span class="line">###Lambda表达式</span><br><span class="line"></span><br><span class="line">下面的代码就是获取有两个属性的标签:</span><br></pre></td></tr></table></figure></td></tr></p>
+<p>soup.findAll(lambdatag:len(tag.attrs) == 2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这行代码会找出下面的标签:</span><br></pre></td></tr></table></figure></p>
+<p><div class="body" id="content"></div><br><span style="color:red" class="title"></span><br>```</p>
+<p>如果你愿意，用lambda表达式选择标签将是正则表达式的完美替代方案。</p>
+
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-爬虫/">python 爬虫</a></li></ul>
+	</div>
+
       
 
       
