@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>使用node.js实现前后端完全分离，项目架构与思考 | 浪潮之巅| NCZkevin Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一：前言因为接到学校网络中心的任务，老师提出了java 作为后台提供api，返回json文件，node负责前端渲染页面。以前一直都是一个人做整站或者后台，单独用node来接收后台数据渲染页面真的是第一次听说。于是去google了下类似的架构，结果竟然出乎意料的发现了不少相同想法的。尤其是淘宝的UED团队，从他们博客里发现阿里正在使用的就是这样的架构。并且发现这样的架构使得前后端得到真正的分离。
+二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用node.js实现前后端完全分离，项目架构与思考">
+<meta property="og:url" content="http://yoursite.com/2016/03/18/e4-bd-bf-e7-94-a8node-js-e5-ae-9e-e7-8e-b0-e5-89-8d-e5-90-8e-e7-ab-af-e5-ae-8c-e5-85-a8-e5-88-86-e7-a6-bb-ef-bc-8c-e9-a1-b9-e7-9b-ae-e6-9e-b6-e6-9e-84-e4-b8-8e-e6-80-9d-e8-80-83/index.html">
+<meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
+<meta property="og:description" content="一：前言因为接到学校网络中心的任务，老师提出了java 作为后台提供api，返回json文件，node负责前端渲染页面。以前一直都是一个人做整站或者后台，单独用node来接收后台数据渲染页面真的是第一次听说。于是去google了下类似的架构，结果竟然出乎意料的发现了不少相同想法的。尤其是淘宝的UED团队，从他们博客里发现阿里正在使用的就是这样的架构。并且发现这样的架构使得前后端得到真正的分离。
+二">
+<meta property="og:image" content="https://camo.githubusercontent.com/b9e16b0b3ff3361a481badaca7d408e8fa6b404f/687474703a2f2f696d672e68622e616963646e2e636f6d2f3961366266353237646162626462396237393563353862306237616636633761313864653963653331316136312d3975697578545f6677363538">
+<meta property="og:image" content="http://gtms02.alicdn.com/tps/i2/T1qGMbFyJcXXbhov2c-562-130.png">
+<meta property="og:image" content="https://camo.githubusercontent.com/ed895cf7561cb3ec07ef74aa2dea573b57dbe219/687474703a2f2f696d672e68622e616963646e2e636f6d2f3430303931653637316230626465653236653531366163303530633663616563383038383562386131326238372d374a676646685f6677363538">
+<meta property="og:updated_time" content="2016-04-12T05:08:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用node.js实现前后端完全分离，项目架构与思考">
+<meta name="twitter:description" content="一：前言因为接到学校网络中心的任务，老师提出了java 作为后台提供api，返回json文件，node负责前端渲染页面。以前一直都是一个人做整站或者后台，单独用node来接收后台数据渲染页面真的是第一次听说。于是去google了下类似的架构，结果竟然出乎意料的发现了不少相同想法的。尤其是淘宝的UED团队，从他们博客里发现阿里正在使用的就是这样的架构。并且发现这样的架构使得前后端得到真正的分离。
+二">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/b9e16b0b3ff3361a481badaca7d408e8fa6b404f/687474703a2f2f696d672e68622e616963646e2e636f6d2f3961366266353237646162626462396237393563353862306237616636633761313864653963653331316136312d3975697578545f6677363538">
+  
+    <link rel="alternative" href="/atom.xml" title="浪潮之巅| NCZkevin Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">NCZkevin</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/ACM-模拟题/" style="font-size: 10px;">ACM 模拟题</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/学习方法/" style="font-size: 20px;">学习方法</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">NCZkevin</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">NCZkevin</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-e4-bd-bf-e7-94-a8node-js-e5-ae-9e-e7-8e-b0-e5-89-8d-e5-90-8e-e7-ab-af-e5-ae-8c-e5-85-a8-e5-88-86-e7-a6-bb-ef-bc-8c-e9-a1-b9-e7-9b-ae-e6-9e-b6-e6-9e-84-e4-b8-8e-e6-80-9d-e8-80-83" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/18/e4-bd-bf-e7-94-a8node-js-e5-ae-9e-e7-8e-b0-e5-89-8d-e5-90-8e-e7-ab-af-e5-ae-8c-e5-85-a8-e5-88-86-e7-a6-bb-ef-bc-8c-e9-a1-b9-e7-9b-ae-e6-9e-b6-e6-9e-84-e4-b8-8e-e6-80-9d-e8-80-83/" class="article-date">
+  	<time datetime="2016-03-18T04:27:13.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用node.js实现前后端完全分离，项目架构与思考
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程之路/">编程之路</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一：前言"><a href="#一：前言" class="headerlink" title="一：前言"></a>一：前言</h2><p>因为接到学校网络中心的任务，老师提出了java 作为后台提供api，返回json文件，node负责前端渲染页面。以前一直都是一个人做整站或者后台，单独用node来接收后台数据渲染页面真的是第一次听说。于是去google了下类似的架构，结果竟然出乎意料的发现了不少相同想法的。尤其是淘宝的UED团队，从他们博客里发现阿里正在使用的就是这样的架构。并且发现这样的架构使得前后端得到真正的分离。</p>
+<h2 id="二：为何分离"><a href="#二：为何分离" class="headerlink" title="二：为何分离"></a>二：为何分离</h2><ul>
+<li>1、开发体系：架构体系决定了后端重于前端，前端做好静态页后，要转为php或vm等，开发要用eclipce等后端环境工作，一大堆让前端迷糊的配置，一旦java人员更新了错误的文件，会导致所有人的环境启动不了，束手无策，只能等待救援。</li>
+<li>2、难维护：页面总是会有php\jsp等非前端代码，相互干扰、无法优化，时间越久问题越突出。</li>
+<li>3、前后端职责不清晰。<br>从我接触web以来，mvc一直被反复提及。毫无以问mvc模式使得前后端得到一定程度的分离。但在学习实践过程中，我发现在mvc中前端在完成界面开发后，后端依然需要来套模板，并且在后期维护过程中，非前端代码带来的干扰使得维护变得越来越复杂。</li>
+</ul>
+<p>前后端分类</p>
+<ul>
+<li>前端：负责所有和用户有交互的产品，包括 WEB以及手机客户端</li>
+<li>后端：负责各种业务 API 的开发，以及服务器端其他系统的开发<br><img src="https://camo.githubusercontent.com/b9e16b0b3ff3361a481badaca7d408e8fa6b404f/687474703a2f2f696d672e68622e616963646e2e636f6d2f3961366266353237646162626462396237393563353862306237616636633761313864653963653331316136312d3975697578545f6677363538" alt="3"></li>
+</ul>
+<p>为了降低复杂度，以后端为出发点，有了 Web Server 层的架构升级，比如 Structs、Spring MVC 等，这是后端的 MVC 时代。</p>
+<p>代码可维护性得到明显好转，MVC 是个非常好的协作模式，从架构层面让开发者懂得什么代码应该写在什么地方。为了让 View 层更简单干脆，还可以选择 Velocity、Freemaker 等模板，使得模板里写不了 Java 代码。看起来是功能变弱了，但正是这种限制使得前后端分工更清晰。然而依旧并不是那么清晰，这个阶段的典型问题是：</p>
+<p>1、<strong>前端开发重度依赖开发环境。</strong>这种架构下，前后端协作有两种模式：一种是前端写 demo，写好后，让后端去套模板。淘宝早期包括现在依旧有大量业务线是这种模式。好处很明显，demo 可以本地开发，很高效。不足是还需要后端套模板，有可能套错，套完后还需要前端确定，来回沟通调整的成本比较大。另一种协作模式是前端负责浏览器端的所有开发和服务器端的 View 层模板开发，支付宝是这种模式。好处是 UI 相关的代码都是前端去写就好，后端不用太关注，不足就是前端开发重度绑定后端环境，环境成为影响前端开发效率的重要因素。</p>
+<p>2、<strong>前后端职责依旧纠缠不清。</strong>Velocity 模板还是蛮强大的，变量、逻辑、宏等特性，依旧可以通过拿到的上下文变量来实现各种业务逻辑。这样，只要前端弱势一点，往往就会被后端要求在模板层写出不少业务代码。还有一个很大的灰色地带是 Controller，页面路由等功能本应该是前端最关注的，但却是由后端来实现。Controller 本身与 Model 往往也会纠缠不清，看了让人咬牙的代码经常会出现在 Controller 层。这些问题不能全归结于程序员的素养，否则 JSP 就够了。</p>
+<p>&nbsp;</p>
+<h2 id="淘宝中途岛-Midway"><a href="#淘宝中途岛-Midway" class="headerlink" title="淘宝中途岛 Midway"></a>淘宝中途岛 Midway</h2><p>在中途岛项目中，前后端分界的那条线，从浏览器端移回到了服务器端。</p>
+<p><img src="http://gtms02.alicdn.com/tps/i2/T1qGMbFyJcXXbhov2c-562-130.png" alt=""></p>
+<p>藉由一个由前端 <strong>轻松掌控</strong> 且 <strong>与浏览器共通</strong> 的Nodejs层，可以更清晰的完成了前后端分离。</p>
+<p>也可以让前端开发针对不同的情况，自行决定 <strong>最适当的解决方案</strong> 。而不是所有事情 <strong>都在浏览器端来处理</strong> 。</p>
+<h3 id="职责划分"><a href="#职责划分" class="headerlink" title="职责划分"></a>职责划分</h3><p>中途岛并不是前端试图抢后端饭碗的项目，目的只是把 <strong>模版</strong> 这个模糊地带切割清楚，取得更明确的职责划分。</p>
+<ul>
+<li><p>后端 (JAVA)，专注于</p>
+<ol>
+<li>服务层</li>
+<li>数据格式、数据稳定</li>
+<li>业务逻辑<br>&nbsp;</li>
+</ol>
+</li>
+<li><p>前端，专注于</p>
+<ol>
+<li>UI层</li>
+<li>控制逻辑、渲染逻辑</li>
+<li>交互、用户体验<br>&nbsp;</li>
+</ol>
+</li>
+</ul>
+<p>而不再拘泥于服务端或浏览器端的差异。</p>
+<h3 id="模版共享"><a href="#模版共享" class="headerlink" title="模版共享"></a>模版共享</h3><p>在传统的开发模式中，浏览器端与服务器端是由不同的前后端两个团队开发，但是模版却又在这两者中间的模糊地带。因此模版上面总不可避免的越来越多复杂逻辑，最终难以维护。</p>
+<p>有了NodeJS，后端同学可以在JAVA层专注于业务逻辑与数据的开发。而前端同学则专注于控制逻辑与渲染的开发。并且自行选择这些模版是要在 <strong>服务端 (NodeJS)</strong> 或是 <strong>浏览器端</strong> 做渲染。</p>
+<p>用著一样的模版语言 <em>XTemplate</em> ，一样的渲染引擎 <em>JavaScript</em></p>
+<p>在 <strong>不同的渲染环境</strong>　（Server-side、PC Browser、Mobile Browser、Web View、etc.） 渲染出 <strong>一样的结果</strong> 。</p>
+<h3 id="路由共享"><a href="#路由共享" class="headerlink" title="路由共享"></a>路由共享</h3><p>也因为有了NodeJS这一层，可以更细致的控制路由。</p>
+<p>假如需要在前端做浏览器端路由时，可以同时配置服务器端的路由，使其在 <strong>浏览器端换页</strong> 或是 <strong>服务端换页</strong> ，都可以得到一致的渲染效果。</p>
+<p>同时也处理了SEO的问题。</p>
+<p>&nbsp;</p>
+<p>前端为主的 MV* 模式解决了很多很多问题，但如上所述，依旧存在不少不足之处。随着 Node.js 的兴起，JavaScript 开始有能力运行在服务端。这意味着可以有一种新的研发模式：</p>
+<p><a href="https://camo.githubusercontent.com/ed895cf7561cb3ec07ef74aa2dea573b57dbe219/687474703a2f2f696d672e68622e616963646e2e636f6d2f3430303931653637316230626465653236653531366163303530633663616563383038383562386131326238372d374a676646685f6677363538" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/ed895cf7561cb3ec07ef74aa2dea573b57dbe219/687474703a2f2f696d672e68622e616963646e2e636f6d2f3430303931653637316230626465653236653531366163303530633663616563383038383562386131326238372d374a676646685f6677363538" alt="7"></a></p>
+<p>在这种研发模式下，前后端的职责很清晰。对前端来说，两个 UI 层各司其职：</p>
+<p>1、Front-end UI layer 处理浏览器层的展现逻辑。通过 CSS 渲染样式，通过 JavaScript 添加交互功能，HTML 的生成也可以放在这层，具体看应用场景。</p>
+<p>2、Back-end UI layer 处理路由、模板、数据获取、cookie 等。通过路由，前端终于可以自主把控 URL Design，这样无论是单页面应用还是多页面应用，前端都可以自由调控。后端也终于可以摆脱对展现的强关注，转而可以专心于业务逻辑层的开发。</p>
+<p>通过 Node，Web Server 层也是 JavaScript 代码，这意味着部分代码可前后复用，需要 SEO 的场景可以在服务端同步渲染，由于异步请求太多导致的性能问题也可以通过服务端来缓解。前一种模式的不足，通过这种模式几乎都能完美解决掉。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="三、如何做分离"><a href="#三、如何做分离" class="headerlink" title="三、如何做分离"></a>三、如何做分离</h2><ul>
+<li>1、产品设计确定后，前后端人员共同制定开发接口，为方便接口的制定、显示、测试，使用nodejs+mongodb开发了接口平台。</li>
+<li>2、从前端角度考虑系统架构图如下：</li>
+<li>前后端分离架构图<br>&nbsp;</li>
+</ul>
+<h2 id="四、分离结果如何"><a href="#四、分离结果如何" class="headerlink" title="四、分离结果如何"></a>四、分离结果如何</h2><ul>
+<li>1、开发效率更高，在联调之前，互不干扰，前端开发完成后就是实际可用的代码，不需要再转换成后台编译环境，永远不会被java / php 启动不成功所困扰。</li>
+<li>2、部分需要前后端共同开发的功能，如文件上传，通常需要页面端与接收端都进行相关的开发配置，之前较难定位是谁配置错误，现在全部由前端完成，开发、测试都容易定位，上传成功后，只要向java发送文件保存的路径即可。</li>
+<li>3、完全分清了前后端开发人员的职责，任一方开发完成后都可以提测，实现同步开发、测试。</li>
+<li>4、联调非常简单，若双方接口一致，正常情况下只要修改要接口请求IP即可完成切换。</li>
+<li>5、问题责任清晰，联调、测试、预发、上线，每个过程都难免会产生问题，前端、后端、运维三方责任边界清晰，日志中记录nodejs的请求发出，nginx请求接收与转发、java端请求接收与返回，三处任何一处断点，都能马上定位是哪方的问题。</li>
+<li>6、前端人员有更高的权限，页面端的展示几乎全由前端实现，但之前一些配置却受制于后台，比如常见的模板功能，纯html页面虽可以通过angularjs实现模板，但实际效果却并不理想，网速差时经常会出现include部分显示后置、甚至加载不成功的情况，nodejs的ejs框架可以很好的实现这个功能。</li>
+<li>另外，据浏览器加载不同的css以便实现浏览器兼容，之前处理通常是页面加载后，通过js判断浏览器类型，再去加载不同的css文件，影响渲染效率，并且js判断浏览器类型本身就存在兼容问题，用nodejs则可以在render前就完成该判断，直接用相应的浏览器样式做渲染</li>
+<li>7、代码复用，验证模块，页面端与nodejs端可以直接复用</li>
+</ul>
+<h3 id="五、注意事项："><a href="#五、注意事项：" class="headerlink" title="五、注意事项："></a>五、注意事项：</h3><ul>
+<li>1、前端开发人员不仅需要有扎实的nodejs知识，还要有一定的服务端、运维知识，对http通信有更深层次的理解，nginx、redis、socket、buffer等技术也要掌握，多多益善。</li>
+<li>2、开发之初对功能充分、宽裕的评估，使用初期不要用nodejs过多开发新功能。初次使用，难免会遇到很多意想不同的问题，前端开发人员本身对服务端知识有限，java人员又对nodejs语法不熟，若处理不好会导致项目延期。<br>*</li>
+</ul>
+<h3 id="六、总结："><a href="#六、总结：" class="headerlink" title="六、总结："></a>六、总结：</h3><ul>
+<li>待续</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/23/e5-8d-9a-e5-ae-a2-e4-b8-80-e5-91-a8-e5-b9-b4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          博客一周年
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/29/e4-b8-8b-e4-b8-80-e4-b8-aa2-e6-9c-8829-e5-8f-b7-e8-a7-81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">下一个2月29号见</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="e4-bd-bf-e7-94-a8node-js-e5-ae-9e-e7-8e-b0-e5-89-8d-e5-90-8e-e7-ab-af-e5-ae-8c-e5-85-a8-e5-88-86-e7-a6-bb-ef-bc-8c-e9-a1-b9-e7-9b-ae-e6-9e-b6-e6-9e-84-e4-b8-8e-e6-80-9d-e8-80-83" data-title="使用node.js实现前后端完全分离，项目架构与思考" data-url="http://yoursite.com/2016/03/18/e4-bd-bf-e7-94-a8node-js-e5-ae-9e-e7-8e-b0-e5-89-8d-e5-90-8e-e7-ab-af-e5-ae-8c-e5-85-a8-e5-88-86-e7-a6-bb-ef-bc-8c-e9-a1-b9-e7-9b-ae-e6-9e-b6-e6-9e-84-e4-b8-8e-e6-80-9d-e8-80-83/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 NCZkevin
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

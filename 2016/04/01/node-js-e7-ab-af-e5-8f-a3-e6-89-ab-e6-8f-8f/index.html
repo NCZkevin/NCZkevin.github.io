@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Node.js端口扫描 | 浪潮之巅| NCZkevin Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、简介编写一个Node.js端口扫描模块，主要用到Node.js的net模块，会使用一些ES6的新语法，主要会用到Promise。
+二、net 模块net 模块包含如下内容：
+Class: net.Server
+Class: net.Socket
+net.connect(options[, connectListener])
+net.connect(path[, connectListener]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js端口扫描">
+<meta property="og:url" content="http://yoursite.com/2016/04/01/node-js-e7-ab-af-e5-8f-a3-e6-89-ab-e6-8f-8f/index.html">
+<meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
+<meta property="og:description" content="一、简介编写一个Node.js端口扫描模块，主要用到Node.js的net模块，会使用一些ES6的新语法，主要会用到Promise。
+二、net 模块net 模块包含如下内容：
+Class: net.Server
+Class: net.Socket
+net.connect(options[, connectListener])
+net.connect(path[, connectListener]">
+<meta property="og:updated_time" content="2016-04-12T04:21:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js端口扫描">
+<meta name="twitter:description" content="一、简介编写一个Node.js端口扫描模块，主要用到Node.js的net模块，会使用一些ES6的新语法，主要会用到Promise。
+二、net 模块net 模块包含如下内容：
+Class: net.Server
+Class: net.Socket
+net.connect(options[, connectListener])
+net.connect(path[, connectListener]">
+  
+    <link rel="alternative" href="/atom.xml" title="浪潮之巅| NCZkevin Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">NCZkevin</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/ACM-模拟题/" style="font-size: 10px;">ACM 模拟题</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/学习方法/" style="font-size: 20px;">学习方法</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">NCZkevin</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">NCZkevin</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-node-js-e7-ab-af-e5-8f-a3-e6-89-ab-e6-8f-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/01/node-js-e7-ab-af-e5-8f-a3-e6-89-ab-e6-8f-8f/" class="article-date">
+  	<time datetime="2016-04-01T07:47:21.000Z" itemprop="datePublished">2016-04-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js端口扫描
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程之路/">编程之路</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>编写一个Node.js端口扫描模块，主要用到Node.js的net模块，会使用一些ES6的新语法，主要会用到Promise。</p>
+<h2 id="二、net-模块"><a href="#二、net-模块" class="headerlink" title="二、net 模块"></a>二、net 模块</h2><p>net 模块包含如下内容：</p>
+<pre><code>Class: net.Server
+Class: net.Socket
+net.connect(options[, connectListener])
+net.connect(path[, connectListener])
+net.connect(port[, host][, connectListener])
+net.createConnection(options[, connectListener])
+net.createConnection(path[, connectListener])
+net.createConnection(port[, host][, connectListener])
+net.createServer([options][, connectionListener])
+net.isIP()
+net.isIPv4()
+net.isIPv6()
+</code></pre><p><code>net.createServer()</code>用于创建socket服务，返回<code>net.Server</code>的实例。<code>net.connection()</code>和<code>net.createConnection()</code>是工厂函数，返回<code>net.Socket</code>实例并自动连接到传入参数指定的socket。<code>net.isIP()</code>、<code>net.isIPv4()</code>及<code>net.isIPv6()</code>用于检测IP。如：</p>
+<p>创建一个socket服务：</p>
+<p><pre class="lang:js decode:true">// demoServer.js</pre></p>
+<p>const net = require(‘net’);</p>
+<p>const server = net.createServer((c) =&gt; {<br>    // ‘connection’ listener<br>    console.log(‘client connected’);<br>    c.on(‘end’, () =&gt; {<br>        console.log(‘client disconnected’);<br>    });<br>    c.write(‘hello\r\n’);<br>    c.pipe(c);<br>});<br>server.on(‘error’, (err) =&gt; {<br>    throw err;<br>});<br>server.listen(8124, () =&gt; {<br>    console.log(‘server bound’);<br>});<br><br>连接上面的socket服务</p>
+<p><pre class="lang:js decode:true ">// demoClient.js</pre></p>
+<p>const net = require(‘net’);</p>
+<p>const client = net.connect({port: 8124}, () =&gt; {<br>    // ‘connect’ listener<br>    console.log(‘connected to server!’);<br>    client.write(‘world!\r\n’);<br>});<br>client.on(‘data’, (data) =&gt; {<br>    console.log(data.toString());<br>    client.end();<br>});<br>client.on(‘end’, () =&gt; {<br>    console.log(‘disconnected from server’);<br>});<br>&nbsp;</p>
+<h2 id="三、编写端口扫描模块"><a href="#三、编写端口扫描模块" class="headerlink" title="三、编写端口扫描模块"></a>三、编写端口扫描模块</h2><p>既然是端口扫描，我们就不需要创建socket服务了，直接去连接需要扫描的端口，看能否连接上，能连上说明此端口是打开的，否则此端口没有打开。</p>
+<p>新建<code>scanPorts.js</code>文件，代码如下：</p>
+<p><pre class="lang:default decode:true ">‘use strict’;</pre></p>
+<p> // 引入 net 模块<br>const net = require(‘net’);<br>// 进度条模块<br>// 此模块需要安装：npm install progress<br>// 用于显示扫描端口完成进度<br>const ProgressBar = require(‘progress’);</p>
+<p> /**</p>
+<ul>
+<li>端口扫描函数</li>
+<li></li>
+<li>@param host {String} 扫描端口的IP/URL地址</li>
+<li>@param start {Number} 起始端口</li>
+<li>@param end {Number} 结束端口</li>
+<li><p>@return {Promise} 返回一个Promise对象<br>*/<br>function checkPorts(host, start, end) {<br>// 返回Promise<br>return new Promise((resolve, reject) =&gt; {</p>
+<pre><code>let counts = end - start + 1; // 需要扫描的IP数量
+let ports = []; // 保存可连接的IP
+
+// 创建进度条
+let bar = new ProgressBar(&apos; scanning [:bar] :percent :etas&apos;, {
+    complete: &apos;=&apos;,
+    incomplete: &apos; &apos;,
+    width: 50,
+    total: counts,
+});
+
+// 循环扫描所有IP
+for (let i = start; i &amp;lt;= end; ++i) {
+    // 使用 net.connect() 尝试连接端口
+    let check = net.connect({
+        host: host,
+        port: i,
+    }, () =&amp;gt; {
+        // 连接成功，表示此端口是开发的
+        // 保存此端口
+        ports.push(i);
+        // 检测完毕，断开此连接
+        check.destroy();
+    });
+
+    check.on(&apos;close&apos;, () =&amp;gt; {
+        // check.destroy() 会触发 close 事件
+        // 尝试连接端口也会触发 close 事件断开连接
+
+        // 每断开一个连接，说明就检测完成了一个端口
+        counts--;
+
+        // 显示进度条
+        bar.tick(1);
+
+        // 此时检测完了所以端口
+        if (counts === 0) {
+            if (ports.length) {
+                resolve(ports);
+            } else {
+                reject(&apos;no port is open&apos;);
+            }
+        }
+    });
+
+    check.on(&apos;error&apos;, (err) =&amp;gt; {
+        // 端口未开发时，连接会失败
+        // 此时会触发 error 事件
+        // 然后会触发 close 事件
+    });
+}
+</code></pre><p>});<br>}</p>
+</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>导出端口扫描包装函数<br>*</li>
+<li>@param host {String} 扫描端口的IP/URL地址</li>
+<li>@param start {Number} 起始端口</li>
+<li>@param end {Number} 结束端口</li>
+<li><p>@param callback {function} 回调函数<br>*/<br>module.exports = (host, start, end, callback) =&gt; {<br> // 检测参数<br> // 如果只传了三个参数，并且end是一个函数<br> // 那么自动作参数调换<br> if (typeof end === ‘function’ &amp;&amp; callback === undefined ) {</p>
+<pre><code>callback = end;
+end = start;
+</code></pre><p> }</p>
+<p> // 调用函数扫描端口<br> checkPorts(host, start, end).then((ports) =&gt; {</p>
+<pre><code>callback(ports);
+</code></pre><p> }).catch((err) =&gt; {</p>
+<pre><code>console.log(err);
+</code></pre><p> });<br>}<br>&nbsp;</p>
+</li>
+</ul>
+<p>使用Promise可以避免多层回调函数，使得代码更加清晰，非常方便。</p>
+<p>下面我们来测试一下吧，创建<code>test.js</code>文件：</p>
+<p><pre class="lang:default decode:true ">‘use strict’;</pre></p>
+<p>const scanPorts = require(‘./scanPorts’);</p>
+<p>scanPorts(‘127.0.0.1’, 1, 65535, (ports) =&gt; {<br>    console.log(‘open ports: ‘, ports);<br>});<br>&nbsp;</p>
+<p>运行代码：</p>
+<p><pre class="lang:default decode:true ">$ node test.js</pre><br>&nbsp;</p>
+<p>可以看到终端打印出了开放的端口。</p>
+<p>一个简单的端口扫描程序就实现了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/08/macbook-e7-9c-9f-e7-9a-84-e8-83-bd-e6-8f-90-e9-ab-98-e7-94-9f-e4-ba-a7-e5-8a-9b-ef-bc-81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Macbook真的能提高生产力！
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/23/e3-80-8a-e4-bd-a0-e4-b8-8d-e7-9f-a5-e9-81-93-e7-9a-84javascript-e3-80-8b-e6-80-bb-e7-bb-93-ef-bc-88-e5-be-85-e6-9b-b4-ef-bc-89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《你不知道的javascript》总结（待更）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="node-js-e7-ab-af-e5-8f-a3-e6-89-ab-e6-8f-8f" data-title="Node.js端口扫描" data-url="http://yoursite.com/2016/04/01/node-js-e7-ab-af-e5-8f-a3-e6-89-ab-e6-8f-8f/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 NCZkevin
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
