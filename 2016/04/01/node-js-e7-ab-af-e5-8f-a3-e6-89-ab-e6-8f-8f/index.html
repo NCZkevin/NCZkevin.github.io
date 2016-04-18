@@ -81,30 +81,18 @@
 
 
 <meta name="description" content="一、简介编写一个Node.js端口扫描模块，主要用到Node.js的net模块，会使用一些ES6的新语法，主要会用到Promise。
-二、net 模块net 模块包含如下内容：
-Class: net.Server
-Class: net.Socket
-net.connect(options[, connectListener])
-net.connect(path[, connectListener]">
+二、net 模块net 模块包含如下内容：123456789101112Class: net.ServerClass: net.Socketnet.connect(options[, connectListener])net.connect(path[, conne">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js端口扫描">
 <meta property="og:url" content="http://yoursite.com/2016/04/01/node-js-e7-ab-af-e5-8f-a3-e6-89-ab-e6-8f-8f/index.html">
 <meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
 <meta property="og:description" content="一、简介编写一个Node.js端口扫描模块，主要用到Node.js的net模块，会使用一些ES6的新语法，主要会用到Promise。
-二、net 模块net 模块包含如下内容：
-Class: net.Server
-Class: net.Socket
-net.connect(options[, connectListener])
-net.connect(path[, connectListener]">
-<meta property="og:updated_time" content="2016-04-12T04:21:45.000Z">
+二、net 模块net 模块包含如下内容：123456789101112Class: net.ServerClass: net.Socketnet.connect(options[, connectListener])net.connect(path[, conne">
+<meta property="og:updated_time" content="2016-04-18T04:50:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js端口扫描">
 <meta name="twitter:description" content="一、简介编写一个Node.js端口扫描模块，主要用到Node.js的net模块，会使用一些ES6的新语法，主要会用到Promise。
-二、net 模块net 模块包含如下内容：
-Class: net.Server
-Class: net.Socket
-net.connect(options[, connectListener])
-net.connect(path[, connectListener]">
+二、net 模块net 模块包含如下内容：123456789101112Class: net.ServerClass: net.Socketnet.connect(options[, connectListener])net.connect(path[, conne">
 
 
 
@@ -339,117 +327,18 @@ net.connect(path[, connectListener]">
 
       
         <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>编写一个Node.js端口扫描模块，主要用到Node.js的net模块，会使用一些ES6的新语法，主要会用到Promise。</p>
-<h2 id="二、net-模块"><a href="#二、net-模块" class="headerlink" title="二、net 模块"></a>二、net 模块</h2><p>net 模块包含如下内容：</p>
-<pre><code>Class: net.Server
-Class: net.Socket
-net.connect(options[, connectListener])
-net.connect(path[, connectListener])
-net.connect(port[, host][, connectListener])
-net.createConnection(options[, connectListener])
-net.createConnection(path[, connectListener])
-net.createConnection(port[, host][, connectListener])
-net.createServer([options][, connectionListener])
-net.isIP()
-net.isIPv4()
-net.isIPv6()
-</code></pre><p><code>net.createServer()</code>用于创建socket服务，返回<code>net.Server</code>的实例。<code>net.connection()</code>和<code>net.createConnection()</code>是工厂函数，返回<code>net.Socket</code>实例并自动连接到传入参数指定的socket。<code>net.isIP()</code>、<code>net.isIPv4()</code>及<code>net.isIPv6()</code>用于检测IP。如：</p>
-<p>创建一个socket服务：</p>
-<p><pre class="lang:js decode:true">// demoServer.js</pre></p>
-<p>const net = require(‘net’);</p>
-<p>const server = net.createServer((c) =&gt; {<br>    // ‘connection’ listener<br>    console.log(‘client connected’);<br>    c.on(‘end’, () =&gt; {<br>        console.log(‘client disconnected’);<br>    });<br>    c.write(‘hello\r\n’);<br>    c.pipe(c);<br>});<br>server.on(‘error’, (err) =&gt; {<br>    throw err;<br>});<br>server.listen(8124, () =&gt; {<br>    console.log(‘server bound’);<br>});<br><br>连接上面的socket服务</p>
-<p><pre class="lang:js decode:true ">// demoClient.js</pre></p>
-<p>const net = require(‘net’);</p>
-<p>const client = net.connect({port: 8124}, () =&gt; {<br>    // ‘connect’ listener<br>    console.log(‘connected to server!’);<br>    client.write(‘world!\r\n’);<br>});<br>client.on(‘data’, (data) =&gt; {<br>    console.log(data.toString());<br>    client.end();<br>});<br>client.on(‘end’, () =&gt; {<br>    console.log(‘disconnected from server’);<br>});<br>&nbsp;</p>
+<h2 id="二、net-模块"><a href="#二、net-模块" class="headerlink" title="二、net 模块"></a>二、net 模块</h2><p>net 模块包含如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Class: net.Server</span><br><span class="line">Class: net.Socket</span><br><span class="line">net.connect(options[, connectListener])</span><br><span class="line">net.connect(path[, connectListener])</span><br><span class="line">net.connect(port[, host][, connectListener])</span><br><span class="line">net.createConnection(options[, connectListener])</span><br><span class="line">net.createConnection(path[, connectListener])</span><br><span class="line">net.createConnection(port[, host][, connectListener])</span><br><span class="line">net.createServer([options][, connectionListener])</span><br><span class="line">net.isIP()</span><br><span class="line">net.isIPv4()</span><br><span class="line">net.isIPv6()</span><br></pre></td></tr></table></figure></p>
+<p><code>net.createServer()</code>用于创建socket服务，返回<code>net.Server</code>的实例。<code>net.connection()</code>和<code>net.createConnection()</code>是工厂函数，返回<code>net.Socket</code>实例并自动连接到传入参数指定的socket。<code>net.isIP()</code>、<code>net.isIPv4()</code>及<code>net.isIPv6()</code>用于检测IP。如：</p>
+<p>创建一个socket服务：<br><figure class="highlight plain"><figcaption><span>demoServer.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const net = require(&apos;net&apos;);</span><br><span class="line"></span><br><span class="line">const server = net.createServer((c) =&amp;gt; &#123;</span><br><span class="line">    // &apos;connection&apos; listener</span><br><span class="line">    console.log(&apos;client connected&apos;);</span><br><span class="line">    c.on(&apos;end&apos;, () =&amp;gt; &#123;</span><br><span class="line">        console.log(&apos;client disconnected&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line">    c.write(&apos;hello\r\n&apos;);</span><br><span class="line">    c.pipe(c);</span><br><span class="line">&#125;);</span><br><span class="line">server.on(&apos;error&apos;, (err) =&amp;gt; &#123;</span><br><span class="line">    throw err;</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(8124, () =&amp;gt; &#123;</span><br><span class="line">    console.log(&apos;server bound&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>连接上面的socket服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// demoClient.js</span><br><span class="line"></span><br><span class="line">const net = require(&apos;net&apos;);</span><br><span class="line"></span><br><span class="line">const client = net.connect(&#123;port: 8124&#125;, () =&amp;gt; &#123;</span><br><span class="line">    // &apos;connect&apos; listener</span><br><span class="line">    console.log(&apos;connected to server!&apos;);</span><br><span class="line">    client.write(&apos;world!\r\n&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">client.on(&apos;data&apos;, (data) =&amp;gt; &#123;</span><br><span class="line">    console.log(data.toString());</span><br><span class="line">    client.end();</span><br><span class="line">&#125;);</span><br><span class="line">client.on(&apos;end&apos;, () =&amp;gt; &#123;</span><br><span class="line">    console.log(&apos;disconnected from server&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>&nbsp;</p>
 <h2 id="三、编写端口扫描模块"><a href="#三、编写端口扫描模块" class="headerlink" title="三、编写端口扫描模块"></a>三、编写端口扫描模块</h2><p>既然是端口扫描，我们就不需要创建socket服务了，直接去连接需要扫描的端口，看能否连接上，能连上说明此端口是打开的，否则此端口没有打开。</p>
-<p>新建<code>scanPorts.js</code>文件，代码如下：</p>
-<p><pre class="lang:default decode:true ">‘use strict’;</pre></p>
-<p> // 引入 net 模块<br>const net = require(‘net’);<br>// 进度条模块<br>// 此模块需要安装：npm install progress<br>// 用于显示扫描端口完成进度<br>const ProgressBar = require(‘progress’);</p>
-<p> /**</p>
-<ul>
-<li>端口扫描函数</li>
-<li></li>
-<li>@param host {String} 扫描端口的IP/URL地址</li>
-<li>@param start {Number} 起始端口</li>
-<li>@param end {Number} 结束端口</li>
-<li><p>@return {Promise} 返回一个Promise对象<br>*/<br>function checkPorts(host, start, end) {<br>// 返回Promise<br>return new Promise((resolve, reject) =&gt; {</p>
-<pre><code>let counts = end - start + 1; // 需要扫描的IP数量
-let ports = []; // 保存可连接的IP
-
-// 创建进度条
-let bar = new ProgressBar(&apos; scanning [:bar] :percent :etas&apos;, {
-    complete: &apos;=&apos;,
-    incomplete: &apos; &apos;,
-    width: 50,
-    total: counts,
-});
-
-// 循环扫描所有IP
-for (let i = start; i &amp;lt;= end; ++i) {
-    // 使用 net.connect() 尝试连接端口
-    let check = net.connect({
-        host: host,
-        port: i,
-    }, () =&amp;gt; {
-        // 连接成功，表示此端口是开发的
-        // 保存此端口
-        ports.push(i);
-        // 检测完毕，断开此连接
-        check.destroy();
-    });
-
-    check.on(&apos;close&apos;, () =&amp;gt; {
-        // check.destroy() 会触发 close 事件
-        // 尝试连接端口也会触发 close 事件断开连接
-
-        // 每断开一个连接，说明就检测完成了一个端口
-        counts--;
-
-        // 显示进度条
-        bar.tick(1);
-
-        // 此时检测完了所以端口
-        if (counts === 0) {
-            if (ports.length) {
-                resolve(ports);
-            } else {
-                reject(&apos;no port is open&apos;);
-            }
-        }
-    });
-
-    check.on(&apos;error&apos;, (err) =&amp;gt; {
-        // 端口未开发时，连接会失败
-        // 此时会触发 error 事件
-        // 然后会触发 close 事件
-    });
-}
-</code></pre><p>});<br>}</p>
-</li>
-</ul>
-<p>/**</p>
-<ul>
-<li>导出端口扫描包装函数<br>*</li>
-<li>@param host {String} 扫描端口的IP/URL地址</li>
-<li>@param start {Number} 起始端口</li>
-<li>@param end {Number} 结束端口</li>
-<li><p>@param callback {function} 回调函数<br>*/<br>module.exports = (host, start, end, callback) =&gt; {<br> // 检测参数<br> // 如果只传了三个参数，并且end是一个函数<br> // 那么自动作参数调换<br> if (typeof end === ‘function’ &amp;&amp; callback === undefined ) {</p>
-<pre><code>callback = end;
-end = start;
-</code></pre><p> }</p>
-<p> // 调用函数扫描端口<br> checkPorts(host, start, end).then((ports) =&gt; {</p>
-<pre><code>callback(ports);
-</code></pre><p> }).catch((err) =&gt; {</p>
-<pre><code>console.log(err);
-</code></pre><p> });<br>}<br>&nbsp;</p>
-</li>
-</ul>
+<p>新建<code>scanPorts.js</code>文件，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line"></span><br><span class="line"> // 引入 net 模块</span><br><span class="line">const net = require(&apos;net&apos;);</span><br><span class="line">// 进度条模块</span><br><span class="line">// 此模块需要安装：npm install progress</span><br><span class="line">// 用于显示扫描端口完成进度</span><br><span class="line">const ProgressBar = require(&apos;progress&apos;);</span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line">  * 端口扫描函数</span><br><span class="line">  * </span><br><span class="line">  * @param host &#123;String&#125; 扫描端口的IP/URL地址</span><br><span class="line">  * @param start &#123;Number&#125; 起始端口</span><br><span class="line">  * @param end &#123;Number&#125; 结束端口</span><br><span class="line">  * @return &#123;Promise&#125; 返回一个Promise对象</span><br><span class="line">  */</span><br><span class="line">function checkPorts(host, start, end) &#123;</span><br><span class="line">    // 返回Promise</span><br><span class="line">    return new Promise((resolve, reject) =&amp;gt; &#123;</span><br><span class="line">        let counts = end - start + 1; // 需要扫描的IP数量</span><br><span class="line">        let ports = []; // 保存可连接的IP</span><br><span class="line"></span><br><span class="line">        // 创建进度条</span><br><span class="line">        let bar = new ProgressBar(&apos; scanning [:bar] :percent :etas&apos;, &#123;</span><br><span class="line">            complete: &apos;=&apos;,</span><br><span class="line">            incomplete: &apos; &apos;,</span><br><span class="line">            width: 50,</span><br><span class="line">            total: counts,</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        // 循环扫描所有IP</span><br><span class="line">        for (let i = start; i &amp;lt;= end; ++i) &#123;</span><br><span class="line">            // 使用 net.connect() 尝试连接端口</span><br><span class="line">            let check = net.connect(&#123;</span><br><span class="line">                host: host,</span><br><span class="line">                port: i,</span><br><span class="line">            &#125;, () =&amp;gt; &#123;</span><br><span class="line">                // 连接成功，表示此端口是开发的</span><br><span class="line">                // 保存此端口</span><br><span class="line">                ports.push(i);</span><br><span class="line">                // 检测完毕，断开此连接</span><br><span class="line">                check.destroy();</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            check.on(&apos;close&apos;, () =&amp;gt; &#123;</span><br><span class="line">                // check.destroy() 会触发 close 事件</span><br><span class="line">                // 尝试连接端口也会触发 close 事件断开连接</span><br><span class="line"></span><br><span class="line">                // 每断开一个连接，说明就检测完成了一个端口</span><br><span class="line">                counts--;</span><br><span class="line"></span><br><span class="line">                // 显示进度条</span><br><span class="line">                bar.tick(1);</span><br><span class="line"></span><br><span class="line">                // 此时检测完了所以端口</span><br><span class="line">                if (counts === 0) &#123;</span><br><span class="line">                    if (ports.length) &#123;</span><br><span class="line">                        resolve(ports);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        reject(&apos;no port is open&apos;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            check.on(&apos;error&apos;, (err) =&amp;gt; &#123;</span><br><span class="line">                // 端口未开发时，连接会失败</span><br><span class="line">                // 此时会触发 error 事件</span><br><span class="line">                // 然后会触发 close 事件</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 导出端口扫描包装函数</span><br><span class="line"> *</span><br><span class="line"> * @param host &#123;String&#125; 扫描端口的IP/URL地址</span><br><span class="line"> * @param start &#123;Number&#125; 起始端口</span><br><span class="line"> * @param end &#123;Number&#125; 结束端口</span><br><span class="line"> * @param callback &#123;function&#125; 回调函数</span><br><span class="line"> */</span><br><span class="line">module.exports = (host, start, end, callback) =&amp;gt; &#123;</span><br><span class="line">    // 检测参数</span><br><span class="line">    // 如果只传了三个参数，并且end是一个函数</span><br><span class="line">    // 那么自动作参数调换</span><br><span class="line">    if (typeof end === &apos;function&apos; &amp;amp;&amp;amp; callback === undefined ) &#123;</span><br><span class="line">        callback = end;</span><br><span class="line">        end = start;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 调用函数扫描端口</span><br><span class="line">    checkPorts(host, start, end).then((ports) =&amp;gt; &#123;</span><br><span class="line">        callback(ports);</span><br><span class="line">    &#125;).catch((err) =&amp;gt; &#123;</span><br><span class="line">        console.log(err);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&nbsp;</p>
 <p>使用Promise可以避免多层回调函数，使得代码更加清晰，非常方便。</p>
-<p>下面我们来测试一下吧，创建<code>test.js</code>文件：</p>
-<p><pre class="lang:default decode:true ">‘use strict’;</pre></p>
-<p>const scanPorts = require(‘./scanPorts’);</p>
-<p>scanPorts(‘127.0.0.1’, 1, 65535, (ports) =&gt; {<br>    console.log(‘open ports: ‘, ports);<br>});<br>&nbsp;</p>
-<p>运行代码：</p>
-<p><pre class="lang:default decode:true ">$ node test.js</pre><br>&nbsp;</p>
+<p>下面我们来测试一下吧，创建<code>test.js</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line"></span><br><span class="line">const scanPorts = require(&apos;./scanPorts&apos;);</span><br><span class="line"></span><br><span class="line">scanPorts(&apos;127.0.0.1&apos;, 1, 65535, (ports) =&amp;gt; &#123;</span><br><span class="line">    console.log(&apos;open ports: &apos;, ports);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>&nbsp;</p>
+<p>运行代码：<br><code>$ node test.js</code></p>
 <p>可以看到终端打印出了开放的端口。</p>
 <p>一个简单的端口扫描程序就实现了。</p>
 
