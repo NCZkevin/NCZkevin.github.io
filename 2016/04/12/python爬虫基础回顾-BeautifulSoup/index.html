@@ -90,7 +90,7 @@
 <meta property="og:description" content="最简单的爬虫12from urllib.request import urlopenhtml = urlopen(&amp;quot;http://pythonscraping.com/pages/page1.html&amp;quot;) print(html.read())
 上述代码引入request模块，只导入一个urlopen函数，读取页面然后输出。
 神器“BeautifulSoup”BeautifulS">
-<meta property="og:updated_time" content="2016-04-18T04:55:40.000Z">
+<meta property="og:updated_time" content="2016-04-18T04:57:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬虫基础回顾-BeautifulSoup">
 <meta name="twitter:description" content="最简单的爬虫12from urllib.request import urlopenhtml = urlopen(&amp;quot;http://pythonscraping.com/pages/page1.html&amp;quot;) print(html.read())
@@ -299,6 +299,11 @@
           
 
           
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
         </div>
       </header>
     
@@ -321,7 +326,7 @@
 <h3 id="运行BeautifulSoup"><a href="#运行BeautifulSoup" class="headerlink" title="运行BeautifulSoup"></a>运行BeautifulSoup</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page1.html&quot;) bsObj = BeautifulSoup(html.read())</span><br><span class="line">print(bsObj.h1)</span><br></pre></td></tr></table></figure>
 <p>输出 <code>&lt;h1&gt;An Interesting Title&lt;/h1&gt;</code></p>
 <p>将html内容传入BeautifulSoup对象，然后通过对象提取h1标签。</p>
-<p>###复杂的html解析<br>BeautifulSoup的find()和findAll()函数将是我们最常用的函数。</p>
+<h3 id="复杂的html解析"><a href="#复杂的html解析" class="headerlink" title="复杂的html解析"></a>复杂的html解析</h3><p>BeautifulSoup的find()和findAll()函数将是我们最常用的函数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">findAll(tag, attributes, recursive, text, limit, keywords)</span><br><span class="line">find(tag, attributes, recursive, text, keywords)</span><br></pre></td></tr></table></figure>
 <p>在大部分时间里我们只会使用前两个参数。<br>tag参数-传一个或者多个标签名称</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.findAll(&#123;&quot;h1&quot;,&quot;h2&quot;&#125;)</span><br></pre></td></tr></table></figure>
@@ -545,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的爬虫"><span class="nav-number">1.</span> <span class="nav-text">最简单的爬虫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神器“BeautifulSoup”"><span class="nav-number">2.</span> <span class="nav-text">神器“BeautifulSoup”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装BeautifulSoup"><span class="nav-number">2.1.</span> <span class="nav-text">安装BeautifulSoup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行BeautifulSoup"><span class="nav-number">2.2.</span> <span class="nav-text">运行BeautifulSoup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeautifulSoup对象"><span class="nav-number">2.3.</span> <span class="nav-text">BeautifulSoup对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeautifulSoup导航树"><span class="nav-number">2.4.</span> <span class="nav-text">BeautifulSoup导航树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.5.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式和BeautifulSoup结合使用"><span class="nav-number">2.6.</span> <span class="nav-text">正则表达式和BeautifulSoup结合使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda表达式"><span class="nav-number">2.7.</span> <span class="nav-text">Lambda表达式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的爬虫"><span class="nav-number">1.</span> <span class="nav-text">最简单的爬虫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神器“BeautifulSoup”"><span class="nav-number">2.</span> <span class="nav-text">神器“BeautifulSoup”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装BeautifulSoup"><span class="nav-number">2.1.</span> <span class="nav-text">安装BeautifulSoup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行BeautifulSoup"><span class="nav-number">2.2.</span> <span class="nav-text">运行BeautifulSoup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂的html解析"><span class="nav-number">2.3.</span> <span class="nav-text">复杂的html解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeautifulSoup对象"><span class="nav-number">2.4.</span> <span class="nav-text">BeautifulSoup对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeautifulSoup导航树"><span class="nav-number">2.5.</span> <span class="nav-text">BeautifulSoup导航树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.6.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式和BeautifulSoup结合使用"><span class="nav-number">2.7.</span> <span class="nav-text">正则表达式和BeautifulSoup结合使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda表达式"><span class="nav-number">2.8.</span> <span class="nav-text">Lambda表达式</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -583,6 +588,22 @@
 </div>
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i>本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i>本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
 
         
       </div>
