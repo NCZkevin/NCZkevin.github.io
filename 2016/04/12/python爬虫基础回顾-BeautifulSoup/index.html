@@ -80,22 +80,22 @@
 
 
 
-<meta name="description" content="最简单的爬虫12from urllib.request import urlopenhtml = urlopen(&amp;quot;http://pythonscraping.com/pages/page1.html&amp;quot;) print(html.read())
+<meta name="description" content="最简单的爬虫123from urllib.request import urlopenhtml = urlopen(&amp;quot;http://pythonscraping.com/pages/page1.html&amp;quot;) print(html.read())
 上述代码引入request模块，只导入一个urlopen函数，读取页面然后输出。
-神器“BeautifulSoup”BeautifulS">
+神器“BeautifulSoup”Beautiful">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python爬虫基础回顾-BeautifulSoup">
 <meta property="og:url" content="http://yoursite.com/2016/04/12/python爬虫基础回顾-BeautifulSoup/index.html">
 <meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
-<meta property="og:description" content="最简单的爬虫12from urllib.request import urlopenhtml = urlopen(&amp;quot;http://pythonscraping.com/pages/page1.html&amp;quot;) print(html.read())
+<meta property="og:description" content="最简单的爬虫123from urllib.request import urlopenhtml = urlopen(&amp;quot;http://pythonscraping.com/pages/page1.html&amp;quot;) print(html.read())
 上述代码引入request模块，只导入一个urlopen函数，读取页面然后输出。
-神器“BeautifulSoup”BeautifulS">
-<meta property="og:updated_time" content="2016-04-18T04:57:50.000Z">
+神器“BeautifulSoup”Beautiful">
+<meta property="og:updated_time" content="2016-04-22T13:26:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬虫基础回顾-BeautifulSoup">
-<meta name="twitter:description" content="最简单的爬虫12from urllib.request import urlopenhtml = urlopen(&amp;quot;http://pythonscraping.com/pages/page1.html&amp;quot;) print(html.read())
+<meta name="twitter:description" content="最简单的爬虫123from urllib.request import urlopenhtml = urlopen(&amp;quot;http://pythonscraping.com/pages/page1.html&amp;quot;) print(html.read())
 上述代码引入request模块，只导入一个urlopen函数，读取页面然后输出。
-神器“BeautifulSoup”BeautifulS">
+神器“BeautifulSoup”Beautiful">
 
 
 
@@ -315,7 +315,7 @@
       
 
       
-        <h2 id="最简单的爬虫"><a href="#最简单的爬虫" class="headerlink" title="最简单的爬虫"></a>最简单的爬虫</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">html = urlopen(&quot;http://pythonscraping.com/pages/page1.html&quot;) print(html.read())</span><br></pre></td></tr></table></figure>
+        <h2 id="最简单的爬虫"><a href="#最简单的爬虫" class="headerlink" title="最简单的爬虫"></a>最简单的爬虫</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">html = urlopen(&quot;http://pythonscraping.com/pages/page1.html&quot;) </span><br><span class="line">print(html.read())</span><br></pre></td></tr></table></figure>
 <p>上述代码引入request模块，只导入一个urlopen函数，读取页面然后输出。</p>
 <h2 id="神器“BeautifulSoup”"><a href="#神器“BeautifulSoup”" class="headerlink" title="神器“BeautifulSoup”"></a>神器“BeautifulSoup”</h2><p>BeautifulSoup库是python爬虫神器之一。通过定位HTML标签来格式化和组织复杂的的网络信息，用简单易用的python对象为我们展示XML结构信息。</p>
 <a id="more"></a>
@@ -323,7 +323,7 @@
 <p>mac 系统<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br></pre></td></tr></table></figure></p>
 <p>测试是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$python</span><br><span class="line">&gt; from bs4 import BeautifulSoup</span><br></pre></td></tr></table></figure></p>
 <p>没有错误导入成功</p>
-<h3 id="运行BeautifulSoup"><a href="#运行BeautifulSoup" class="headerlink" title="运行BeautifulSoup"></a>运行BeautifulSoup</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page1.html&quot;) bsObj = BeautifulSoup(html.read())</span><br><span class="line">print(bsObj.h1)</span><br></pre></td></tr></table></figure>
+<h3 id="运行BeautifulSoup"><a href="#运行BeautifulSoup" class="headerlink" title="运行BeautifulSoup"></a>运行BeautifulSoup</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page1.html&quot;) </span><br><span class="line">bsObj = BeautifulSoup(html.read())</span><br><span class="line">print(bsObj.h1)</span><br></pre></td></tr></table></figure>
 <p>输出 <code>&lt;h1&gt;An Interesting Title&lt;/h1&gt;</code></p>
 <p>将html内容传入BeautifulSoup对象，然后通过对象提取h1标签。</p>
 <h3 id="复杂的html解析"><a href="#复杂的html解析" class="headerlink" title="复杂的html解析"></a>复杂的html解析</h3><p>BeautifulSoup的find()和findAll()函数将是我们最常用的函数。</p>
@@ -341,9 +341,9 @@
 </ul>
 <h3 id="BeautifulSoup导航树"><a href="#BeautifulSoup导航树" class="headerlink" title="BeautifulSoup导航树"></a>BeautifulSoup导航树</h3><p>1.处理子标签和其他后代标签</p>
 <p>子标签室一个父标签的下一级，后代标签是指一个父标签下面所有级别的标签。一般情况下，beautifulsoup函数总是处理当前标签的后代标签。<br><code>bsObj.div.findAll(&#39;img’)</code>会找出文档中的第一个div标签，获取这个div后代里所有的img标签列表。<br>只想找出子标签可以用.children标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page3.html&quot;)</span><br><span class="line">bsObj = BeautifulSoup(html)</span><br><span class="line">for child in bsObj.find(&quot;table&quot;,&#123;&quot;id&quot;:&quot;giftList&quot;&#125;).children:</span><br><span class="line">print(child)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page3.html&quot;)</span><br><span class="line">bsObj = BeautifulSoup(html)</span><br><span class="line">for child in bsObj.find(&quot;table&quot;,&#123;&quot;id&quot;:&quot;giftList&quot;&#125;).children:</span><br><span class="line">	print(child)</span><br></pre></td></tr></table></figure>
 <p>2.处理兄弟标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page3.html&quot;) bsObj = BeautifulSoup(html)</span><br><span class="line">for sibling in bsObj.find(&quot;table&quot;,&#123;&quot;id&quot;:&quot;giftList&quot;&#125;).tr.next_siblings: print(sibling)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page3.html&quot;) </span><br><span class="line">bsObj = BeautifulSoup(html)</span><br><span class="line">for sibling in bsObj.find(&quot;table&quot;,&#123;&quot;id&quot;:&quot;giftList&quot;&#125;).tr.next_siblings: </span><br><span class="line">	print(sibling)</span><br></pre></td></tr></table></figure>
 <p>这段代码会打印产品列表里的所有行的产品,第一行表格标题除外。对象不能把自己作为兄弟标签。任何时候你获取一个标签的兄弟标签,都不会包含这个标签本身。其次,这个函数只调用后面的兄弟标签。</p>
 <p>3.父标签处理<br>在特殊情况下你也会用BeautifulSoup 的父标签查找函数,parent和parents。例如:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import urlopen</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">html = urlopen(&quot;http://www.pythonscraping.com/pages/page3.html&quot;) </span><br><span class="line">bsObj = BeautifulSoup(html)</span><br><span class="line">print(bsObj.find(&quot;img&quot;,&#123;&quot;src&quot;:&quot;../img/gifts/img1.jpg&quot;&#125;).parent.previous_sibling.get_text())</span><br></pre></td></tr></table></figure>
