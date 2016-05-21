@@ -1,0 +1,883 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ACM," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="hdoj1002这道题大概是一月份就看到了，但是一直没有去处理。但大整数类问题在题目中比较常见，所以开始详细学习大整数类。
+hdoj1002代码直接用刘汝佳的算法竞赛入门经典中的大整数BigInteger模板，运用这个模板基本能处理大部分大整数问题。
+#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;struct BigInteger{    st">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大整数类 问题（hdoj1002）">
+<meta property="og:url" content="http://yoursite.com/2015/03/25/大整数类 问题（hdoj1002）/index.html">
+<meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
+<meta property="og:description" content="hdoj1002这道题大概是一月份就看到了，但是一直没有去处理。但大整数类问题在题目中比较常见，所以开始详细学习大整数类。
+hdoj1002代码直接用刘汝佳的算法竞赛入门经典中的大整数BigInteger模板，运用这个模板基本能处理大部分大整数问题。
+#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;struct BigInteger{    st">
+<meta property="og:updated_time" content="2016-04-12T05:09:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大整数类 问题（hdoj1002）">
+<meta name="twitter:description" content="hdoj1002这道题大概是一月份就看到了，但是一直没有去处理。但大整数类问题在题目中比较常见，所以开始详细学习大整数类。
+hdoj1002代码直接用刘汝佳的算法竞赛入门经典中的大整数BigInteger模板，运用这个模板基本能处理大部分大整数问题。
+#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;struct BigInteger{    st">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 大整数类 问题（hdoj1002） | 浪潮之巅| NCZkevin Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?fc41efc6a6b29e5d945ec6a6af3c370e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">浪潮之巅| NCZkevin Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      <li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+ 
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+ 
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+ 
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+ 
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+ 
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+ 
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+ 
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+ 
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+ 
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+ 
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+ 
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+ 
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+ 
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                大整数类 问题（hdoj1002）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-03-25T12:55:07+08:00" content="2015-03-25">
+              2015-03-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程之路/" itemprop="url" rel="index">
+                    <span itemprop="name">编程之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/25/大整数类 问题（hdoj1002）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/25/大整数类 问题（hdoj1002）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>hdoj1002这道题大概是一月份就看到了，但是一直没有去处理。但大整数类问题在题目中比较常见，所以开始详细学习大整数类。</p>
+<p>hdoj1002代码直接用刘汝佳的算法竞赛入门经典中的大整数BigInteger模板，运用这个模板基本能处理大部分大整数问题。</p>
+<p><pre class="lang:c++ decode:true " title="hdoj1002/大数模板">#include &lt;bits/stdc++.h&gt;<br>using namespace std;<br>struct BigInteger{<br>    static const int BASE = 100000000;<br>    static const int WIDTH = 8;<br>    vector&lt;int&gt; s;<br>    BigInteger(long long num=0) {<em>this = num;}//构造函数<br>    BigInteger operator =(long long num){     //赋值运算符<br>        s.clear();<br>        do{<br>            s.push_back(num % BASE);<br>            num /= BASE;<br>        }while(num &gt; 0);<br>        return </em>this;<br>    }<br>    BigInteger operator = (const string &amp; str){  //赋值运算符<br>        s.clear();<br>        int x, len = (str.length()-1)/WIDTH + 1;<br>        for(int i=0;i&lt;len;i++){<br>            int end = str.length()-i<em>WIDTH;<br>            int start =max (0,end - WIDTH);<br>            sscanf(str.substr(start,end-start).c_str(),”%d”,&amp;x);<br>            s.push_back(x);<br>        }<br>        return </em>this;<br>    }<br>    BigInteger operator + (const BigInteger&amp; b) const {<br>        BigInteger c;<br>        c.s.clear();<br>        for(int i=0,g=0;;i++){<br>            if(g==0&amp;&amp;i&gt;=s.size()&amp;&amp;i&gt;=b.s.size()) break;<br>            int x=g;<br>            if(i&lt;s.size()) x+=s[i];<br>            if(i&lt;b.s.size()) x+=b.s[i];<br>            c.s.push_back(x%BASE);<br>            g=x/BASE;<br>        }<br>        return c;<br>    }<br>};<br>ostream&amp; operator &lt;&lt; (ostream &amp;out,const BigInteger&amp; x){<br>    out&lt;&lt;x.s.back();<br>    for(int i=x.s.size()-2;i&gt;=0;i–){<br>        char buf[20];<br>        sprintf(buf,”%08d”,x.s[i]);<br>        for(int j=0;j&lt;strlen(buf);j++) out&lt;&lt;buf[j];<br>    }<br>    return out;<br>}<br>istream&amp; operator &gt;&gt; (istream &amp;in,BigInteger&amp; x) {<br>    string s;<br>    if(!(in&gt;&gt;s)) return in;<br>    x=s;<br>    return in;<br>}<br>int main() {<br>    int n;<br>    int m=1;<br>    cin&gt;&gt;n;<br>    while(n–)<br>  {  BigInteger x,y,p;<br>      cin&gt;&gt;x&gt;&gt;y;<br>      p=x+y;<br>      if (m != 1)<br>      {<br>          printf(“\n”);<br>      }<br>      printf(“Case %d:\n”, m++);<br>      cout&lt;&lt;x&lt;&lt;” + “&lt;&lt;y&lt;&lt;” = “&lt;&lt;p&lt;&lt;endl;</pre></p>
+<p>  }<br>    return 0;<br>}<br><span style="color: #003366;"><strong> <span style="color: #ff0000;">#include &lt;bits/stdc++.h&gt;包含C++的所有头文件</span></strong></span></p>
+<p><pre class="lang:c++ decode:true " title="比较容易理解的算法">#include&lt;stdio.h&gt;</pre></p>
+<p>#include&lt;string.h&gt;<br>char a[1000000];   /<em>用两个字符数组记录两个大数 </em>/<br>char b[1000000];<br>int A[1000000];<br>int B[1000000];<br>int C[1000000];<br>int main()<br>{int n,i,j,t1,k,t2,max,x;<br>scanf(“%d”,&amp;n);<br>x=0;<br>while(n–)<br>    {scanf(“%s”,a);<br>     scanf(“%s”,b);<br>     memset(A,0,sizeof(A));  /<em>注意每一次循环都有让数组清零 </em>/<br>     memset(B,0,sizeof(B));<br>     memset(C,0,sizeof(C));<br>     t1=strlen(a);<br>     t2=strlen(b);<br>     max=t1&gt;t2?t1:t2;<br>     for(j=0,k=0,i=t1-1;i&gt;=0;i–)<br>         {A[j++]=a[i]-‘0’;   /<em>因为输入是从最高位到最低位输入，而计算是从最低位开始计算，所以倒着记录</em>/<br>          C[k++]=a[i]-‘0’;   /<em>因为最开始记录的是字符数组，所以要减去’0’字符 </em>/<br>        }<br>     for(j=0,i=t2-1;i&gt;=0;i–)<br>     B[j++]=b[i]-‘0’;<br>     for(i=0;i&lt;max;i++)<br>         {A[i]=A[i]+B[i];<br>         if(A[i]&gt;=10) {A[i]=A[i]-10;A[i+1]++;}  /<em>注意进位</em>/<br>         }<br>    for(i=max;(i&gt;=0)&amp;&amp;(A[i]==0);i–) ; /<em>首位如果是0的话，清0，保证最大位不是0 </em>/<br>    if(i&gt;=0)<br>        {printf(“Case %d:\n”,++x);<br>        for(j=t1-1;j&gt;=0;j–)<br>        printf(“%d”,C[j]);<br>        printf(“ + “);<br>        for(j=t2-1;j&gt;=0;j–)<br>        printf(“%d”,B[j]);<br>        printf(“ = “);<br>        for(;i&gt;=0;i–)<br>        printf(“%d”,A[i]);<br>        }<br>    else {printf(“Case %d:\n”,++x);<br>          for(j=t1-1;j&gt;=0;j–)<br>            printf(“%d”,C[j]);<br>            printf(“ + “);<br>          for(j=t2-1;j&gt;=0;j–)<br>            printf(“%d”,B[j]);<br>            printf(“ = “);<br>              printf(“0”);<br>         }<br>         printf(“\n”);<br>    if(n) printf(“\n”);<br>    }<br>return 0;<br>}<br>第二种写法很容易理解，写起来只要注意格式就很简单了。</p>
+<p><pre class="lang:c++ decode:true " title="较好的算法">#include &lt;iostream&gt;  </pre></p>
+<p>#include &lt;string.h&gt;<br>using namespace std;<br>void add(char a[], char b[], char tmp[]);<br>int main()<br>{<br>    int t;<br>    cin &gt;&gt; t;<br>    for(int i = 1; i &lt;= t; i++)<br>    {<br>        char a[1005], b[1005], tmp[1005];<br>        a[0] = b[0] = ‘0’;<br>        scanf(“%s %s”, &amp;a[1], &amp;b[1]);<br>        add(a, b, tmp);<br>        printf(“Case %d:\n”, i);<br>        printf(“%s + %s = “, &amp;a[1], &amp;b[1]);<br>        if(tmp[0] != ‘0’) printf(“%c”,tmp[0]);<br>        printf(“%s\n”, &amp;tmp[1]);<br>        if(i != t)<br>        cout &lt;&lt; endl;<br>    }<br>    return 0;<br>}  </p>
+<p>void add(char a[], char b[], char tmp[])<br>{<br>    int carry = 0, t;<br>    int sza = strlen(a), szb = strlen(b);<br>    int sz = (sza &gt; szb)? sza: szb;<br>    tmp[sz] = ‘\0’;<br>    for(int i = sz - 1; i &gt;= 0; i–)<br>    {<br>        sza–; szb–;<br>        if(sza &gt;= 0 &amp;&amp; szb &lt; 0)<br>        {<br>            t = a[sza]-48 + carry, carry = 0;<br>            if(t &gt; 9)<br>                tmp[i] = t - 10 +48, carry = 1;<br>            else<br>                tmp[i] = t + 48;<br>        }<br>        if(szb &gt;= 0 &amp;&amp; sza &lt; 0)<br>        {<br>            t = b[szb] - 48 + carry, carry = 0;<br>            if(t &gt; 9)<br>                tmp[i] = t - 10 + 48, carry = 1;<br>            else<br>                tmp[i] = t + 48;<br>        }<br>        if(sza &gt;= 0 &amp;&amp; szb &gt;= 0)<br>        {<br>            t = a[sza] - 48 + b[szb] - 48 + carry, carry = 0;<br>            if(t &gt; 9)<br>                tmp[i] = t - 10 + 48, carry = 1;<br>            else<br>                tmp[i] = t + 48;<br>        }<br>    }<br>}<br>&nbsp;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="NCZkevin wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/" rel="tag">#ACM</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/25/对学校教学及个人学习的感想/" rel="next" title="对学校教学及个人学习的感想">
+                <i class="fa fa-chevron-left"></i> 对学校教学及个人学习的感想
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/30/懒散的态度/" rel="prev" title="懒散的态度">
+                懒散的态度 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/03/25/大整数类 问题（hdoj1002）/"
+     data-title="大整数类 问题（hdoj1002）"
+     data-content=""
+     data-url="http://yoursite.com/2015/03/25/大整数类 问题（hdoj1002）/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/03/25/大整数类 问题（hdoj1002）/"
+           data-title="大整数类 问题（hdoj1002）" data-url="http://yoursite.com/2015/03/25/大整数类 问题（hdoj1002）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avtar.jpg"
+               alt="NCZkevin" />
+          <p class="site-author-name" itemprop="name">NCZkevin</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/nczkevin" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/nczkevin" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/nczkevin" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NCZkevin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i>本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i>本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"nczkevin"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
