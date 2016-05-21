@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="flask," />
+  <meta name="keywords" content="mac,工具," />
 
 
 
@@ -80,28 +80,34 @@
 
 
 
-<meta name="description" content="阿里云的学生优惠确实给力，一年才90.虽然需要备案才能通过域名访问网站，但是也可以直接用IP访问。于是就先测试下，把一个简单的flask应用扔上去。至于服务器选择ubuntu的原因，毕竟桌面上用ubuntu用的比较多比较熟练，而且ubuntu安装程序配置在某些时候比起centos还是要方便点的。
-部署方案设计：
-web服务器采用nginx，静态文件全部通过nginx直接访问。
-wsgi服务器采用g">
+<meta name="description" content="把握好时间与效率在我的学习与计划中非常重要，通过有效的工具管理，不但能提高自己的效率和时间利用率，还能分析出改进的方法，不断的使得自己的时间利用最大化，效率最高。下面介绍我常用的工具。
+番茄土豆（pomotodo）
+基于番茄工作法和任务管理，番茄土豆帮助你更高效地完成工作
+
+这是番茄土豆官网给出的介绍。事实上番茄工作法是简单易行的时间管理方法，是由弗朗西斯科·西里洛于1992年创立的一种相对于GT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flask应用部署到阿里云Ubuntu">
-<meta property="og:url" content="http://yoursite.com/2015/10/21/flask-e5-ba-94-e7-94-a8-e9-83-a8-e7-bd-b2-e5-88-b0-e9-98-bf-e9-87-8c-e4-ba-91ubuntu/index.html">
+<meta property="og:title" content="时间与效率管理">
+<meta property="og:url" content="http://yoursite.com/2016/05/21/时间与效率管理/index.html">
 <meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
-<meta property="og:description" content="阿里云的学生优惠确实给力，一年才90.虽然需要备案才能通过域名访问网站，但是也可以直接用IP访问。于是就先测试下，把一个简单的flask应用扔上去。至于服务器选择ubuntu的原因，毕竟桌面上用ubuntu用的比较多比较熟练，而且ubuntu安装程序配置在某些时候比起centos还是要方便点的。
-部署方案设计：
-web服务器采用nginx，静态文件全部通过nginx直接访问。
-wsgi服务器采用g">
-<meta property="og:image" content="http://www.nczkevin.com/wp-content/uploads/2015/10/QQ图片20151021183750-300x255.png">
-<meta property="og:image" content="http://www.nczkevin.com/wp-content/uploads/2015/10/QQ图片20151021194210.png">
-<meta property="og:updated_time" content="2016-04-12T05:10:05.000Z">
+<meta property="og:description" content="把握好时间与效率在我的学习与计划中非常重要，通过有效的工具管理，不但能提高自己的效率和时间利用率，还能分析出改进的方法，不断的使得自己的时间利用最大化，效率最高。下面介绍我常用的工具。
+番茄土豆（pomotodo）
+基于番茄工作法和任务管理，番茄土豆帮助你更高效地完成工作
+
+这是番茄土豆官网给出的介绍。事实上番茄工作法是简单易行的时间管理方法，是由弗朗西斯科·西里洛于1992年创立的一种相对于GT">
+<meta property="og:image" content="http://static.zybuluo.com/nczkevin/hkupshbsciv29r2yff7fuuz9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8810.59.03.png">
+<meta property="og:image" content="http://static.zybuluo.com/nczkevin/ivcaoojtvun3rtrfa6n7jn32/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8810.58.01.png">
+<meta property="og:image" content="http://static.zybuluo.com/nczkevin/6x83ykt2fmbmrl08e8ah8gmj/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8810.58.22.png">
+<meta property="og:image" content="http://static.zybuluo.com/nczkevin/t9zu3nrstete62r1iv7dwqds/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8811.11.28.png">
+<meta property="og:image" content="http://static.zybuluo.com/nczkevin/q2y5yk8me0q1v2nucc2jgqbk/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8811.15.50.png">
+<meta property="og:updated_time" content="2016-05-21T01:50:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flask应用部署到阿里云Ubuntu">
-<meta name="twitter:description" content="阿里云的学生优惠确实给力，一年才90.虽然需要备案才能通过域名访问网站，但是也可以直接用IP访问。于是就先测试下，把一个简单的flask应用扔上去。至于服务器选择ubuntu的原因，毕竟桌面上用ubuntu用的比较多比较熟练，而且ubuntu安装程序配置在某些时候比起centos还是要方便点的。
-部署方案设计：
-web服务器采用nginx，静态文件全部通过nginx直接访问。
-wsgi服务器采用g">
-<meta name="twitter:image" content="http://www.nczkevin.com/wp-content/uploads/2015/10/QQ图片20151021183750-300x255.png">
+<meta name="twitter:title" content="时间与效率管理">
+<meta name="twitter:description" content="把握好时间与效率在我的学习与计划中非常重要，通过有效的工具管理，不但能提高自己的效率和时间利用率，还能分析出改进的方法，不断的使得自己的时间利用最大化，效率最高。下面介绍我常用的工具。
+番茄土豆（pomotodo）
+基于番茄工作法和任务管理，番茄土豆帮助你更高效地完成工作
+
+这是番茄土豆官网给出的介绍。事实上番茄工作法是简单易行的时间管理方法，是由弗朗西斯科·西里洛于1992年创立的一种相对于GT">
+<meta name="twitter:image" content="http://static.zybuluo.com/nczkevin/hkupshbsciv29r2yff7fuuz9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8810.59.03.png">
 
 
 
@@ -119,7 +125,7 @@ wsgi服务器采用g">
   };
 </script>
 
-  <title> flask应用部署到阿里云Ubuntu | 浪潮之巅| NCZkevin Blog </title>
+  <title> 时间与效率管理 | 浪潮之巅| NCZkevin Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +275,7 @@ wsgi服务器采用g">
             
             
               
-                flask应用部署到阿里云Ubuntu
+                时间与效率管理
               
             
           </h1>
@@ -281,8 +287,8 @@ wsgi服务器采用g">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-21T11:46:27+08:00" content="2015-10-21">
-              2015-10-21
+            <time itemprop="dateCreated" datetime="2016-05-21T09:46:11+08:00" content="2016-05-21">
+              2016-05-21
             </time>
           </span>
 
@@ -295,8 +301,8 @@ wsgi服务器采用g">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/编程之路/" itemprop="url" rel="index">
+                    <span itemprop="name">编程之路</span>
                   </a>
                 </span>
 
@@ -311,8 +317,8 @@ wsgi服务器采用g">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/21/flask-e5-ba-94-e7-94-a8-e9-83-a8-e7-bd-b2-e5-88-b0-e9-98-bf-e9-87-8c-e4-ba-91ubuntu/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/21/flask-e5-ba-94-e7-94-a8-e9-83-a8-e7-bd-b2-e5-88-b0-e9-98-bf-e9-87-8c-e4-ba-91ubuntu/" itemprop="commentsCount"></span>
+                <a href="/2016/05/21/时间与效率管理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/21/时间与效率管理/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -340,64 +346,23 @@ wsgi服务器采用g">
       
 
       
-        <p>阿里云的学生优惠确实给力，一年才90.虽然需要备案才能通过域名访问网站，但是也可以直接用IP访问。于是就先测试下，把一个简单的flask应用扔上去。至于服务器选择ubuntu的原因，毕竟桌面上用ubuntu用的比较多比较熟练，而且ubuntu安装程序配置在某些时候比起centos还是要方便点的。</p>
-<h2 id="部署方案设计："><a href="#部署方案设计：" class="headerlink" title="部署方案设计："></a>部署方案设计：</h2><p><a href="http://www.nczkevin.com/wp-content/uploads/2015/10/QQ图片20151021183750.png" target="_blank" rel="external"><img src="http://www.nczkevin.com/wp-content/uploads/2015/10/QQ图片20151021183750-300x255.png" alt="QQ图片20151021183750"></a></p>
-<p>web服务器采用nginx，静态文件全部通过nginx直接访问。</p>
-<p>wsgi服务器采用gunicorn，gunicorn的配置比较方便使用简单。除此之外还有uwsgi,gevent,cherrypy,mod_wsgi(apache).大家可以自行选择。</p>
-<p>虚拟环境：virtualenv（python神器，用过都知道）</p>
-<p>进程管理工具：supervisor （能对应用程序进程控制，多应用进程管理，应用中断后快速恢复）</p>
-<h2 id="部署过程："><a href="#部署过程：" class="headerlink" title="部署过程："></a>部署过程：</h2><h3 id="安装软件包："><a href="#安装软件包：" class="headerlink" title="安装软件包："></a>安装软件包：</h3><p>安装nginx，mongdb（根据自己需求选择），virtualenv，supervisor，git，pip。</p>
-<p>安装nginx</p>
-<pre>sudo apt-get install nginx</pre>
-安装mongdb
-<pre>sudo apt-get install mongdb-server</pre>
-安装git（我们代码通过git放到服务器里）
-<pre>sudo apt-get install git</pre>
-安装supervisor
-<pre>sudo apt-get install supervisor</pre>
-安装pip工具
-<pre class="">sudo apt-get install python-pip</pre>
-安装神器virtualenv
-<pre class="">pip install virtualenv</pre>
-安装gunicorn
-<pre class="">pip install gunicorn</pre>
-安装的东西就这么多了，安装完成后可以检查一下是否安装成功，运行成功。
-
-### 部署配置
-
-由于是测试，我就把代码直接放在home里
-<pre class="">cd home
-git clone XXXXXXXXX</pre>
-接着配置nginx,进到 /etc/nginx下，ls一下，你会看到sites-available和sites-enabled两个文件夹。你可以打开nginx.conf文件，里面有各个文件的作用。sites-available放置可用的配置文件，sites-enabled下就ln当前启用的配置，方便快速启用，停用。（cenos里nginx配置和ubuntu不同）然后我们进入available下创建一个配置，并且链接到enabled下。
-<pre>vim todo_app</pre>
-<pre>server {
-    listen 80;  
-
-    location /static {
-        alias /home/Darkwave/Todo/app/static;
-    }
-
-    location / {
-        proxy_pass http://127.0.0.1:9000;
-    }
-}
-</pre>
-接着到enabled下链接
-<pre>cd site-enabled/
-ln -s .. /sites-available/todo_app .
-</pre>
-nginx的配置就完成了 重启下nginx。(你可能会在sites-available下看到一个default文件，这是nginx默认配置，你可以直接在里面改，或者重命名掉。否则有可能会打开网页一直只出现nginx的欢迎界面）
-<pre>service nginx reload
-service nginx restart</pre>
-
-<h4 id="配置supervisor"><a href="#配置supervisor" class="headerlink" title="配置supervisor"></a>配置supervisor</h4><p><pre>cd /etc/supervisor<br>ls<br>vim supervisor.conf<br></pre><br>ls后我们会看到一个文件夹conf.d和一个配置文件，打开配置文件观察后发现conf.d文件夹里存放着应用的配置。<br>接着进入conf.d创建配置文件</p>
-<p><pre>cd conf.d/<br>vim todo.conf</pre></p>
-<p><pre class="">[program:todo]<br>command = /home/Darkwave/Todo/venv/bin/gunicorn -b 127.0.0.1:9000 run:app<br>directory = /home/Darkwave/Todo<br></pre><br>OK了，保存退出。supervisorctl命令进入supervisor的控制台。start + 应用名 开启应用。status查看状态。stop + 应用名 停止运行。</p>
-<p><a href="http://www.nczkevin.com/wp-content/uploads/2015/10/QQ图片20151021194210.png" target="_blank" rel="external"><img src="http://www.nczkevin.com/wp-content/uploads/2015/10/QQ图片20151021194210.png" alt="QQ图片20151021194210"></a></p>
-<p>&nbsp;</p>
-<p>如果没有什么问题，现在就可以在浏览器中输入你的阿里云服务器IP，然后就能看见你的web应用运行在上面。</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+        <p>把握好<strong>时间与效率</strong>在我的学习与计划中非常重要，通过有效的工具管理，不但能提高自己的效率和时间利用率，还能分析出改进的方法，不断的使得自己的时间利用最大化，效率最高。下面介绍我常用的工具。</p>
+<h2 id="番茄土豆（pomotodo）"><a href="#番茄土豆（pomotodo）" class="headerlink" title="番茄土豆（pomotodo）"></a>番茄土豆（pomotodo）</h2><blockquote>
+<p>基于番茄工作法和任务管理，番茄土豆帮助你更高效地完成工作</p>
+</blockquote>
+<p>这是番茄土豆官网给出的介绍。事实上番茄工作法是简单易行的时间管理方法，是由弗朗西斯科·西里洛于1992年创立的一种相对于GTD更微观的时间管理方法。使用番茄工作法，选择一个待完成的任务，将番茄时间设为<strong>25分钟</strong>，专注工作，中途不允许做任何与该任务无关的事，直到番茄时钟响起，然后在纸上画一个X短暂休息一下（5分钟就行），每4个番茄时段多休息一会儿。番茄工作法极大地提高了工作的效率，还会有意想不到的成就感。</p>
+<p>而番茄土豆这在此基础上加上了任务管理。成为一个完整的工作流效率工具,从收集想法、规划任务、专注工作、归纳分析，番茄土豆提供了完整的工作流效率管理。<br><img src="http://static.zybuluo.com/nczkevin/hkupshbsciv29r2yff7fuuz9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8810.59.03.png" alt="屏幕快照 2016-05-20 下午10.59.03.png-241.9kB"></p>
+<p> <img src="http://static.zybuluo.com/nczkevin/ivcaoojtvun3rtrfa6n7jn32/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8810.58.01.png" alt="屏幕快照 2016-05-20 下午10.58.01.png-217.7kB"></p>
+<p>  <img src="http://static.zybuluo.com/nczkevin/6x83ykt2fmbmrl08e8ah8gmj/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8810.58.22.png" alt="屏幕快照 2016-05-20 下午10.58.22.png-128.6kB"></p>
+<p>  从倒数第二张可以看到我在13-15日内完成的一些任务情况，通过这个工具我们能记住自己每天干了什么。而最后一张图这是给出了一周的分析图，用过分析数据，我发现自己早上的时间利用率可谓是极低，那么我便针对此专门做调整，加强早上的时间学习与利用。<br> 除此之外，还能给自己添加目标，并将其嵌入到日历中，不断提醒自己。<br> <img src="http://static.zybuluo.com/nczkevin/t9zu3nrstete62r1iv7dwqds/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8811.11.28.png" alt="屏幕快照 2016-05-20 下午11.11.28.png-154.4kB"></p>
+<p>  市面上这类工具很多，但做的最好的就是这款pomotodo，无论是全平台（甚至有appwatch和Androidwear版本），还是良心到极致的付费，只要你想随时可以退款。<strong>强烈推荐有需求的朋友使用</strong>。</p>
+<h2 id="RescueTime"><a href="#RescueTime" class="headerlink" title="RescueTime"></a>RescueTime</h2><p>一款时间记录软件，手机和电脑都可使用，两者结合绝对完美！（我是这么认为的） </p>
+<p>这款软件只需要在最初的几天做好设置，接下来会自动进行统计记录。它会在后台自动追踪你的使用时间，你是在玩微信还是在打电话还是在用电脑上网亦或是开着word在工作，它都能帮你监控哦！！ </p>
+<p>最后还会帮你进行统计，计算你的效率（浪费的时间、积极工作或者学习的时间占总时间的百分比和具体数值）。 </p>
+<p>最让我欣赏的是它能同时多平台使用（手机和电脑一起开着）不过你时间利用的大方向是绝对没错的！ </p>
+<p>放张我今天的图：<br><img src="http://static.zybuluo.com/nczkevin/q2y5yk8me0q1v2nucc2jgqbk/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8B%E5%8D%8811.15.50.png" alt="屏幕快照 2016-05-20 下午11.15.50.png-198.2kB"></p>
+<hr>
+<p>工具是死的，人才是活的。如果你只是去使用工具，而不去做改变，那么以上的推荐并没有任何意义。<br>相反活用工具，通过工具不断的改变自己，使自己不断提高，才是工具最大的作用。</p>
 
       
     </div>
@@ -423,7 +388,9 @@ service nginx restart</pre>
       
         <div class="post-tags">
           
-            <a href="/tags/flask/" rel="tag">#flask</a>
+            <a href="/tags/mac/" rel="tag">#mac</a>
+          
+            <a href="/tags/工具/" rel="tag">#工具</a>
           
         </div>
       
@@ -432,17 +399,13 @@ service nginx restart</pre>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/20/e3-80-8a-e6-9e-84-e5-bb-ba-e4-b9-8b-e6-b3-95-e3-80-8b-e7-bb-83-e4-b9-a0-e4-b8-8e-e8-ae-a8-e8-ae-ba/" rel="next" title="《构建之法》练习与讨论">
-                <i class="fa fa-chevron-left"></i> 《构建之法》练习与讨论
+              <a href="/2016/04/22/初试Vue/" rel="next" title="初试Vue-基础篇">
+                <i class="fa fa-chevron-left"></i> 初试Vue-基础篇
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/10/28/e8-bd-ac-e5-a4-a7-e5-ad-a6-e4-b9-8b-e8-b7-af-ef-bc-88-e4-b8-80-e4-bd-8d-e5-89-8d-e8-be-88-e7-9a-84-e6-84-9f-e5-8f-97-ef-bc-89/" rel="prev" title="转-大学之路（一位前辈的感受）">
-                转-大学之路（一位前辈的感受） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -457,10 +420,10 @@ service nginx restart</pre>
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/10/21/flask-e5-ba-94-e7-94-a8-e9-83-a8-e7-bd-b2-e5-88-b0-e9-98-bf-e9-87-8c-e4-ba-91ubuntu/"
-     data-title="flask应用部署到阿里云Ubuntu"
+        <div class="ds-share flat" data-thread-key="2016/05/21/时间与效率管理/"
+     data-title="时间与效率管理"
      data-content=""
-     data-url="http://yoursite.com/2015/10/21/flask-e5-ba-94-e7-94-a8-e9-83-a8-e7-bd-b2-e5-88-b0-e9-98-bf-e9-87-8c-e4-ba-91ubuntu/">
+     data-url="http://yoursite.com/2016/05/21/时间与效率管理/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -487,8 +450,8 @@ service nginx restart</pre>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/21/flask-e5-ba-94-e7-94-a8-e9-83-a8-e7-bd-b2-e5-88-b0-e9-98-bf-e9-87-8c-e4-ba-91ubuntu/"
-           data-title="flask应用部署到阿里云Ubuntu" data-url="http://yoursite.com/2015/10/21/flask-e5-ba-94-e7-94-a8-e9-83-a8-e7-bd-b2-e5-88-b0-e9-98-bf-e9-87-8c-e4-ba-91ubuntu/">
+      <div class="ds-thread" data-thread-key="2016/05/21/时间与效率管理/"
+           data-title="时间与效率管理" data-url="http://yoursite.com/2016/05/21/时间与效率管理/">
       </div>
     
   </div>
@@ -608,7 +571,7 @@ service nginx restart</pre>
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#部署方案设计："><span class="nav-number">1.</span> <span class="nav-text">部署方案设计：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署过程："><span class="nav-number">2.</span> <span class="nav-text">部署过程：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装软件包："><span class="nav-number">2.1.</span> <span class="nav-text">安装软件包：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置supervisor"><span class="nav-number">2.1.1.</span> <span class="nav-text">配置supervisor</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#番茄土豆（pomotodo）"><span class="nav-number">1.</span> <span class="nav-text">番茄土豆（pomotodo）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RescueTime"><span class="nav-number">2.</span> <span class="nav-text">RescueTime</span></a></li></ol></div>
             
           </div>
         </section>
