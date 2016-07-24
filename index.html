@@ -484,10 +484,7 @@
 
       
         
-          
-          目前团队在做一个项目，大家使用同一个GIT分支写代码，每次都使用一个脚本更新推送代码。脚本如下：1234567891011echo &quot;please enter commit info：&quot;read msggit pull origin mastergit add .git comm
-          ...
-
+          <p>目前团队在做一个项目，大家使用同一个GIT分支写代码，每次都使用一个脚本更新推送代码。脚本如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;please enter commit info：&quot;</span><br><span class="line"></span><br><span class="line">read msg</span><br><span class="line"></span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line">git commit -a -m &quot;$msg&quot;</span><br><span class="line">git push -u origin master</span><br><span class="line">#sync</span><br><span class="line">ssh root@XXXXXX.com &apos;cd /var/www/xv/web/xvstore &amp;&amp; git pull&apos;</span><br></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/07/24/Git回退版本/#more" rel="contents">
               阅读全文 &raquo;
