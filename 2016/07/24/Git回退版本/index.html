@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -86,26 +86,16 @@
 
 
 
-<meta name="description" content="用过一次VIM，感觉其直接插入头文件很方便。但是在sublime插件中没找到这类型的插件（应该有，只是我没找到），就决定自己写一个插件，百度之后找到了一个关于这类型的文章，便照着写了。sublime的插件开发是基于Python的，写起来很方便。有点python基础的应该都能看懂。
-1. 在菜单栏的工具下有新插件，点击后就会给出一个可以往编辑器插入hello world的小插件。
-2.将下面的代码复">
+<meta name="description" content="目前团队在做一个项目，大家使用同一个GIT分支写代码，每次都使用一个脚本更新推送代码。脚本如下：1234567891011echo &amp;quot;please enter commit info：&amp;quot;read msggit pull origin mastergit add .git commit -a -m &amp;quot;$msg&amp;quot;git push -u origin master">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sublime Text写C语言，插入头文件（插件）">
-<meta property="og:url" content="http://yoursite.com/2015/05/17/sublime-text-e5-86-99c-e8-af-ad-e8-a8-80-ef-bc-8c-e6-8f-92-e5-85-a5-e5-a4-b4-e6-96-87-e4-bb-b6-ef-bc-88-e6-8f-92-e4-bb-b6-ef-bc-89/index.html">
+<meta property="og:title" content="Git回退版本">
+<meta property="og:url" content="http://yoursite.com/2016/07/24/Git回退版本/index.html">
 <meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
-<meta property="og:description" content="用过一次VIM，感觉其直接插入头文件很方便。但是在sublime插件中没找到这类型的插件（应该有，只是我没找到），就决定自己写一个插件，百度之后找到了一个关于这类型的文章，便照着写了。sublime的插件开发是基于Python的，写起来很方便。有点python基础的应该都能看懂。
-1. 在菜单栏的工具下有新插件，点击后就会给出一个可以往编辑器插入hello world的小插件。
-2.将下面的代码复">
-<meta property="og:image" content="http://yoursite.com/file:///C:\Users\lxdn\AppData\Roaming\Tencent\Users\1376871863\QQ\WinTemp\RichOle\F}FCG`@O5E2PLUPAFG}A4`R.png">
-<meta property="og:image" content="http://www.nczkevin.com/wp-content/uploads/2015/04/FFCG@O5E2PLUPAFGA4R.png">
-<meta property="og:image" content="http://yoursite.com/file:///C:\Users\lxdn\AppData\Roaming\Tencent\Users\1376871863\QQ\WinTemp\RichOle\F}FCG`@O5E2PLUPAFG}A4`R.png">
-<meta property="og:updated_time" content="2016-04-12T05:07:30.000Z">
+<meta property="og:description" content="目前团队在做一个项目，大家使用同一个GIT分支写代码，每次都使用一个脚本更新推送代码。脚本如下：1234567891011echo &amp;quot;please enter commit info：&amp;quot;read msggit pull origin mastergit add .git commit -a -m &amp;quot;$msg&amp;quot;git push -u origin master">
+<meta property="og:updated_time" content="2016-07-24T07:21:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sublime Text写C语言，插入头文件（插件）">
-<meta name="twitter:description" content="用过一次VIM，感觉其直接插入头文件很方便。但是在sublime插件中没找到这类型的插件（应该有，只是我没找到），就决定自己写一个插件，百度之后找到了一个关于这类型的文章，便照着写了。sublime的插件开发是基于Python的，写起来很方便。有点python基础的应该都能看懂。
-1. 在菜单栏的工具下有新插件，点击后就会给出一个可以往编辑器插入hello world的小插件。
-2.将下面的代码复">
-<meta name="twitter:image" content="http://yoursite.com/file:///C:\Users\lxdn\AppData\Roaming\Tencent\Users\1376871863\QQ\WinTemp\RichOle\F}FCG`@O5E2PLUPAFG}A4`R.png">
+<meta name="twitter:title" content="Git回退版本">
+<meta name="twitter:description" content="目前团队在做一个项目，大家使用同一个GIT分支写代码，每次都使用一个脚本更新推送代码。脚本如下：1234567891011echo &amp;quot;please enter commit info：&amp;quot;read msggit pull origin mastergit add .git commit -a -m &amp;quot;$msg&amp;quot;git push -u origin master">
 
 
 
@@ -123,7 +113,7 @@
   };
 </script>
 
-  <title> Sublime Text写C语言，插入头文件（插件） | 浪潮之巅| NCZkevin Blog </title>
+  <title> Git回退版本 | 浪潮之巅| NCZkevin Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -423,7 +413,7 @@
             
             
               
-                Sublime Text写C语言，插入头文件（插件）
+                Git回退版本
               
             
           </h1>
@@ -435,8 +425,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-17T12:50:23+08:00" content="2015-05-17">
-              2015-05-17
+            <time itemprop="dateCreated" datetime="2016-07-24T15:04:14+08:00" content="2016-07-24">
+              2016-07-24
             </time>
           </span>
 
@@ -449,8 +439,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/编程之路/" itemprop="url" rel="index">
+                    <span itemprop="name">编程之路</span>
                   </a>
                 </span>
 
@@ -465,8 +455,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/05/17/sublime-text-e5-86-99c-e8-af-ad-e8-a8-80-ef-bc-8c-e6-8f-92-e5-85-a5-e5-a4-b4-e6-96-87-e4-bb-b6-ef-bc-88-e6-8f-92-e4-bb-b6-ef-bc-89/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/17/sublime-text-e5-86-99c-e8-af-ad-e8-a8-80-ef-bc-8c-e6-8f-92-e5-85-a5-e5-a4-b4-e6-96-87-e4-bb-b6-ef-bc-88-e6-8f-92-e4-bb-b6-ef-bc-89/" itemprop="commentsCount"></span>
+                <a href="/2016/07/24/Git回退版本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/Git回退版本/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -494,27 +484,14 @@
       
 
       
-        <p>用过一次VIM，感觉其直接插入头文件很方便。但是在sublime插件中没找到这类型的插件（应该有，只是我没找到），就决定自己写一个插件，百度之后找到了一个关于这类型的文章，便照着写了。sublime的插件开发是基于Python的，写起来很方便。有点python基础的应该都能看懂。</p>
-<p>1. 在菜单栏的工具下有新插件，点击后就会给出一个可以往编辑器插入hello world的小插件。</p>
-<p>2.将下面的代码复制进去，具体内容参考<a href="http://www.sublimetext.com/docs/2/api_reference.html#sublime.View" target="_blank" rel="external">sublime的API</a>。</p>
-<p><pre class="wrap:true lang:python decode:true " title="插入头文件">import sublime, sublime_plugin, datetime</pre></p>
-<p>class insertSignatureCommand(sublime_plugin.TextCommand):<br>    def run(self, edit):<br>        date = datetime.datetime.now()<br>        dateStr = date.strftime(“%Y-%m-%d %X”)<br>        text_encode = “””#-<em>- encoding: utf-8 -</em>-\n/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>\n”””<br>        text_author = “””\n<em> File Name:\n</em> author: NCZkevin\n<em> Mail: z1376871863@163.com\n</em> Homepage: <a href="http://nczkevin.com\n******************************************************/\n" target="_blank" rel="external">http://nczkevin.com\n******************************************************/\n</a>“””<br>        text_include = “””\n#include “vector”\n#include “set”\n#include “deque”\n#include “queue”\n#include “algorithm”\n#include “functional”\n#include “iostream”\n#include “cstdio”\n#include “cmath”\n#include “cstdlib”\n#include “string”\n#include “cstring”\n#include “string.h”\n#include “map”\n#include “cctype”\n#include “list”\n#include “stack”\n\nusing namespace std;\n#define INF 0x3f3f3f3f\n”””</p>
-<pre><code>text = text_encode + &apos;Created on &apos; + dateStr + text_author + text_include
+        <p>目前团队在做一个项目，大家使用同一个GIT分支写代码，每次都使用一个脚本更新推送代码。脚本如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;please enter commit info：&quot;</span><br><span class="line"></span><br><span class="line">read msg</span><br><span class="line"></span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line">git commit -a -m &quot;$msg&quot;</span><br><span class="line">git push -u origin master</span><br><span class="line">#sync</span><br><span class="line">ssh root@XXXXXX.com &apos;cd /var/www/xv/web/xvstore &amp;&amp; git pull&apos;</span><br></pre></td></tr></table></figure></p>
+<p>正常情况下，大家不同时写同一个文件，使用这个脚本能轻松的完成代码的更新。<strong>但是当发生冲突时，很有可能会将远程库中的代码覆盖。</strong><br>昨天更新代码的时候，由于文件冲突，强行运行多次脚步，将代码推送上去，一看发现其他代码也被覆盖掉，顿时想起回退版本。在看过几种方法之后，发现了一种比较简单的方法，解决远程仓库回退的问题。</p>
+<h3 id="首先运行git-log，git-reset"><a href="#首先运行git-log，git-reset" class="headerlink" title="首先运行git log，git reset"></a>首先运行git log，git reset</h3><p>具体用哪个命令根据具体情况判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">回退所有内容到上一个版本 </span><br><span class="line">git reset HEAD^ </span><br><span class="line">回退a.py这个文件的版本到上一个版本 </span><br><span class="line">git reset HEAD^ a.py </span><br><span class="line">向前回退到第3个版本 </span><br><span class="line">git reset –soft HEAD~3 </span><br><span class="line">将本地的状态回退到和远程的一样 </span><br><span class="line">git reset –hard origin/master </span><br><span class="line">回退到某个版本 </span><br><span class="line">git reset 057d </span><br><span class="line">回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit </span><br><span class="line">git revert HEAD</span><br></pre></td></tr></table></figure></p>
+<h3 id="然后git-push"><a href="#然后git-push" class="headerlink" title="然后git push"></a>然后git push</h3><p>本地的master分支 reset到你相应的位置之后,在进行push的时候加上-f参数.<br>完整的命令是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure></p>
+<p>在push的时候,需要你有强制更新的权限(如果你们的git服务器有权限管理的话).<br>详细的含义你可以在命令行中输入 git push –help 查看.</p>
+<p>此时远程仓库的代码会被强行更新到这个版本。之前的commit全部消失。</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p><strong>Git确实是一个博大精深的工具，有大多要学的东西</strong></p>
 
-#for region in the selection
-#一个region是一个选择块，一次可以选择多个块
-for r in self.view.sel():
-    str_r = self.view.substr(r)#str_r是所选择块的文本内容
-    if &apos;Created on &apos; in str_r:
-        if &apos;Updated on &apos; in str_r:
-            text = str_r[0:str_r.find(&apos;Updated on &apos;)] + &apos;Updated on &apos; + dateStr + text_author + text_include
-        else:
-            text = str_r.replace(text_author, &apos;\nUpdated on &apos; + dateStr + text_author)
-    self.view.erase(edit, r)
-    self.view.insert(edit, r.begin(), text)
-</code></pre><p><br>3.保存文件时，默认会让选择保存在“…\Sublime Text 3\Date\Packages\User\” 文件夹下，取好文件名insert_signature.py。</p>
-<p>按下快捷键Ctrl + ‘ 打开SublimeText的控制台，执行如下命令就可以运行刚刚写的小插件：</p>
-<div class="cnblogs_code"><br><pre class="">view.run_command(‘insert_signature’)</pre><br></div><br>4.设置快捷键使用该插件，将文件保存为Default (Windows).sublime-keymap，不同系统改括号内的系统名，并且将文件与插件代码保存在同一文件夹下.快捷键可以随意设置，只要注意不要与其他快捷冲突。<br><pre class="lang:default decode:true">[<br>    {<br>        “keys”: [“f1”], “command”: “insert_signature”,<br>        “args”: {}<br>    }<br>]</pre><br><!--StartFragment --><br><div><img src="file:///C:\Users\lxdn\AppData\Roaming\Tencent\Users\1376871863\QQ\WinTemp\RichOle\F}FCG&#96;@O5E2PLUPAFG}A4&#96;R.png" alt=""><!--StartFragment --><br><div><a href="http://www.nczkevin.com/wp-content/uploads/2015/04/FFCG@O5E2PLUPAFGA4R.png" target="_blank" rel="external"><img src="http://www.nczkevin.com/wp-content/uploads/2015/04/FFCG@O5E2PLUPAFGA4R.png" alt="F}FCG&#96;@O5E2PLUPAFG}A4&#96;R"></a></div><br><div></div><br><!--StartFragment --><br><div>将插入的全部选中再按一次快捷键就会有updated 时间。具体插入可以自己根据需要修改。<img src="file:///C:\Users\lxdn\AppData\Roaming\Tencent\Users\1376871863\QQ\WinTemp\RichOle\F}FCG&#96;@O5E2PLUPAFG}A4&#96;R.png" alt=""></div><br></div>
       
     </div>
     
@@ -539,7 +516,7 @@ for r in self.view.sel():
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/git/" rel="tag">#git</a>
           
         </div>
       
@@ -548,17 +525,13 @@ for r in self.view.sel():
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/15/4.4-4.15写题记录/" rel="next" title="4.4-4.15写题记录">
-                <i class="fa fa-chevron-left"></i> 4.4-4.15写题记录
+              <a href="/2016/05/21/时间与效率管理/" rel="next" title="时间与效率管理">
+                <i class="fa fa-chevron-left"></i> 时间与效率管理
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/05/20/5.20给大家来点有趣的东西/" rel="prev" title="5.20给大家来点有趣的东西">
-                5.20给大家来点有趣的东西 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,10 +546,10 @@ for r in self.view.sel():
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/05/17/sublime-text-e5-86-99c-e8-af-ad-e8-a8-80-ef-bc-8c-e6-8f-92-e5-85-a5-e5-a4-b4-e6-96-87-e4-bb-b6-ef-bc-88-e6-8f-92-e4-bb-b6-ef-bc-89/"
-     data-title="Sublime Text写C语言，插入头文件（插件）"
+        <div class="ds-share flat" data-thread-key="2016/07/24/Git回退版本/"
+     data-title="Git回退版本"
      data-content=""
-     data-url="http://yoursite.com/2015/05/17/sublime-text-e5-86-99c-e8-af-ad-e8-a8-80-ef-bc-8c-e6-8f-92-e5-85-a5-e5-a4-b4-e6-96-87-e4-bb-b6-ef-bc-88-e6-8f-92-e4-bb-b6-ef-bc-89/">
+     data-url="http://yoursite.com/2016/07/24/Git回退版本/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -603,8 +576,8 @@ for r in self.view.sel():
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/05/17/sublime-text-e5-86-99c-e8-af-ad-e8-a8-80-ef-bc-8c-e6-8f-92-e5-85-a5-e5-a4-b4-e6-96-87-e4-bb-b6-ef-bc-88-e6-8f-92-e4-bb-b6-ef-bc-89/"
-           data-title="Sublime Text写C语言，插入头文件（插件）" data-url="http://yoursite.com/2015/05/17/sublime-text-e5-86-99c-e8-af-ad-e8-a8-80-ef-bc-8c-e6-8f-92-e5-85-a5-e5-a4-b4-e6-96-87-e4-bb-b6-ef-bc-88-e6-8f-92-e4-bb-b6-ef-bc-89/">
+      <div class="ds-thread" data-thread-key="2016/07/24/Git回退版本/"
+           data-title="Git回退版本" data-url="http://yoursite.com/2016/07/24/Git回退版本/">
       </div>
     
   </div>
@@ -724,7 +697,7 @@ for r in self.view.sel():
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先运行git-log，git-reset"><span class="nav-number">1.</span> <span class="nav-text">首先运行git log，git reset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后git-push"><span class="nav-number">2.</span> <span class="nav-text">然后git push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
             
           </div>
         </section>
