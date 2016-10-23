@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -86,22 +86,32 @@
 
 
 
-<meta name="description" content="初次得知全栈工程师是在知乎上看到如何成为全栈工程师 这个问题的时候。在排名最高的答案中，对于全栈工程师给出了这样一个定义
+<meta name="description" content="最近学校举办了一个模拟情侣72小时的活动，收到了大概500份个人数据，包括身高，年龄，自我介绍，理想的TA等数据。决定分析这些数据看看能不能得出一些因缺思厅的结论。
 
-一个真正的 Full Stack Engineer ，他从生活中发现问题，洞察需求，他设计解决方案，并开发出初始版本的产品。为了达到目标，他愿意去学习任何领域的技能和知识。同时他不追求一个人完成所有工作，如果有人可以比他在某方面做得更出色，便会十分热情的邀请他们加入。他们学习">
+分析数据数据全部在一张excel表中，那么首先我们就要将数据读取出来。这里我们使用pandas。了解过python数据分析或者machine learning的朋友应该都知道这个库,详细内容请看文档.
+安装pandas
+pip i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="全栈工程师的自我修养——思考">
-<meta property="og:url" content="http://yoursite.com/2015/11/18/全栈工程师的自我修养——思考/index.html">
+<meta property="og:title" content="用python分析男女生配对数据生成词云">
+<meta property="og:url" content="http://yoursite.com/2016/10/23/用python分析男女生配对数据生成词云/index.html">
 <meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
-<meta property="og:description" content="初次得知全栈工程师是在知乎上看到如何成为全栈工程师 这个问题的时候。在排名最高的答案中，对于全栈工程师给出了这样一个定义
+<meta property="og:description" content="最近学校举办了一个模拟情侣72小时的活动，收到了大概500份个人数据，包括身高，年龄，自我介绍，理想的TA等数据。决定分析这些数据看看能不能得出一些因缺思厅的结论。
 
-一个真正的 Full Stack Engineer ，他从生活中发现问题，洞察需求，他设计解决方案，并开发出初始版本的产品。为了达到目标，他愿意去学习任何领域的技能和知识。同时他不追求一个人完成所有工作，如果有人可以比他在某方面做得更出色，便会十分热情的邀请他们加入。他们学习">
-<meta property="og:updated_time" content="2016-04-12T05:08:56.000Z">
+分析数据数据全部在一张excel表中，那么首先我们就要将数据读取出来。这里我们使用pandas。了解过python数据分析或者machine learning的朋友应该都知道这个库,详细内容请看文档.
+安装pandas
+pip i">
+<meta property="og:image" content="http://static.zybuluo.com/nczkevin/51bj5xarac03s0qfh534mfqt/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-10-23%20%E4%B8%8B%E5%8D%883.15.33.png">
+<meta property="og:image" content="http://static.zybuluo.com/nczkevin/zj3izweqy780f86j0194sqla/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-10-23%20%E4%B8%8B%E5%8D%881.09.43.png">
+<meta property="og:image" content="http://static.zybuluo.com/nczkevin/bm7xooprufaikhm7juigf5xg/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-10-23%20%E4%B8%8B%E5%8D%881.07.31.png">
+<meta property="og:updated_time" content="2016-10-23T08:01:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="全栈工程师的自我修养——思考">
-<meta name="twitter:description" content="初次得知全栈工程师是在知乎上看到如何成为全栈工程师 这个问题的时候。在排名最高的答案中，对于全栈工程师给出了这样一个定义
+<meta name="twitter:title" content="用python分析男女生配对数据生成词云">
+<meta name="twitter:description" content="最近学校举办了一个模拟情侣72小时的活动，收到了大概500份个人数据，包括身高，年龄，自我介绍，理想的TA等数据。决定分析这些数据看看能不能得出一些因缺思厅的结论。
 
-一个真正的 Full Stack Engineer ，他从生活中发现问题，洞察需求，他设计解决方案，并开发出初始版本的产品。为了达到目标，他愿意去学习任何领域的技能和知识。同时他不追求一个人完成所有工作，如果有人可以比他在某方面做得更出色，便会十分热情的邀请他们加入。他们学习">
+分析数据数据全部在一张excel表中，那么首先我们就要将数据读取出来。这里我们使用pandas。了解过python数据分析或者machine learning的朋友应该都知道这个库,详细内容请看文档.
+安装pandas
+pip i">
+<meta name="twitter:image" content="http://static.zybuluo.com/nczkevin/51bj5xarac03s0qfh534mfqt/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-10-23%20%E4%B8%8B%E5%8D%883.15.33.png">
 
 
 
@@ -119,7 +129,7 @@
   };
 </script>
 
-  <title> 全栈工程师的自我修养——思考 | 浪潮之巅| NCZkevin Blog </title>
+  <title> 用python分析男女生配对数据生成词云 | 浪潮之巅| NCZkevin Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -419,7 +429,7 @@
             
             
               
-                全栈工程师的自我修养——思考
+                用python分析男女生配对数据生成词云
               
             
           </h1>
@@ -431,8 +441,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-18T15:12:55+08:00" content="2015-11-18">
-              2015-11-18
+            <time itemprop="dateCreated" datetime="2016-10-23T15:56:24+08:00" content="2016-10-23">
+              2016-10-23
             </time>
           </span>
 
@@ -445,8 +455,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书心得/" itemprop="url" rel="index">
-                    <span itemprop="name">读书心得</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -461,8 +471,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/18/全栈工程师的自我修养——思考/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/全栈工程师的自我修养——思考/" itemprop="commentsCount"></span>
+                <a href="/2016/10/23/用python分析男女生配对数据生成词云/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/23/用python分析男女生配对数据生成词云/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -490,23 +500,23 @@
       
 
       
-        <p>初次得知全栈工程师是在知乎上看到<a href="http://www.zhihu.com/question/22420900" target="_blank" rel="external">如何成为全栈工程师</a> 这个问题的时候。在排名最高的答案中，对于全栈工程师给出了这样一个定义</p>
-<blockquote>
-<p>一个真正的 Full Stack Engineer ，他从生活中发现问题，洞察需求，他设计解决方案，并开发出初始版本的产品。为了达到目标，他愿意去学习任何领域的技能和知识。同时他不追求一个人完成所有工作，如果有人可以比他在某方面做得更出色，便会十分热情的邀请他们加入。他们学习技能和知识，不是为了成为某个领域的专家；而是因为那些 是完成自己目标所需要的。<br>而在另外一个答案里有这么一句话<br>我觉得任何一方面的具体经验都不重要，重要的是思维方式和学习能力。<br>当时我对这两段话并没有什么深入的理解，只是觉得他们说的很对但又不知道对在哪里。毕竟当时我还在写hello world，没有什么经验。过了快一年，当我完成了一些小项目，又读到《web全栈工程师的自我修养》这本书时。感觉对于从前两句话，对于全栈，对于工程师有了新的认知。</p>
+        <blockquote>
+<p>最近学校举办了一个模拟情侣72小时的活动，收到了大概500份个人数据，包括身高，年龄，自我介绍，理想的TA等数据。决定分析这些数据看看能不能得出一些因缺思厅的结论。</p>
 </blockquote>
-<h3 id="何为全栈工程师"><a href="#何为全栈工程师" class="headerlink" title="何为全栈工程师"></a>何为全栈工程师</h3><p>在书中第一章便提到了应该从能力和思维方式两方面，来判定一个人是否是一个合格的全栈工程师。一个全栈工程师首先要”一专多长”，这点很容易理解，工程师首先要有一个专精的方向，在这个方向上足够精通之后，以此为突破点去学习更多的知识。如果没有在某些方向上的深入理解，囫囵吞枣般的去学习其他知识，反而会影响学习的深度，最后恐怕会成为一个看上去什么都会，其实什么都不理解的的程序员。全栈工程师的另外一个特点就是学会解决问题，而不是醉心于技术，技术总是在快速的变化，而全栈工程师存在的意义是解决问题。当碰到问题时，不应该只想到如何利用现有的技术去实现，而是要想如何用最好的技术去实现，不会的话，就马上制定计划去学。</p>
-<h3 id="如何成为全栈工程师"><a href="#如何成为全栈工程师" class="headerlink" title="如何成为全栈工程师"></a>如何成为全栈工程师</h3><ul>
-<li>先精后广，一精多长</li>
-<li>围绕商业目标</li>
-<li>关注用户体验</li>
-</ul>
-<h2 id="工程师之路"><a href="#工程师之路" class="headerlink" title="工程师之路"></a>工程师之路</h2><h4 id="积累作品集"><a href="#积累作品集" class="headerlink" title="积累作品集"></a>积累作品集</h4><h4 id="理解编程语言"><a href="#理解编程语言" class="headerlink" title="理解编程语言"></a>理解编程语言</h4><h4 id="软件设计方法"><a href="#软件设计方法" class="headerlink" title="软件设计方法"></a>软件设计方法</h4><ul>
-<li><strong>设计模式</strong></li>
-<li><strong>架构模式</strong></li>
-<li><strong>设计原则</strong></li>
-</ul>
-<h4 id="高效工程师"><a href="#高效工程师" class="headerlink" title="高效工程师"></a>高效工程师</h4><h4 id="学习设计"><a href="#学习设计" class="headerlink" title="学习设计"></a>学习设计</h4><h4 id="管理与沟通"><a href="#管理与沟通" class="headerlink" title="管理与沟通"></a>管理与沟通</h4><a id="more"></a>
-<p>明天有空来写</p>
+<h2 id="分析数据"><a href="#分析数据" class="headerlink" title="分析数据"></a>分析数据</h2><p>数据全部在一张excel表中，那么首先我们就要将数据读取出来。这里我们使用<strong>pandas</strong>。了解过python数据分析或者machine learning的朋友应该都知道这个库,详细内容请看<a href="http://pandas.pydata.org/pandas-docs/stable/whatsnew.html" target="_blank" rel="external">文档</a>.</p>
+<p>安装pandas</p>
+<pre><code>pip install pandas
+</code></pre><p>读取Excel</p>
+<pre><code>import pandas as pd
+data = pd.read_excel(&quot;yue.xls&quot;)
+</code></pre><p>现在我们看看有哪些数据，如下我们运行data.dtypes可以看到所有的数据列和类型。<br><img src="http://static.zybuluo.com/nczkevin/51bj5xarac03s0qfh534mfqt/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-10-23%20%E4%B8%8B%E5%8D%883.15.33.png" alt="屏幕快照 2016-10-23 下午3.15.33.png-144.5kB"></p>
+<p>这次我们只需要性别和理想的TA，通过这两个数据分别得出男女生对伴侣的要求。<br>代码如下:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">boy = data[data[<span class="string">u"性别"</span>] == <span class="string">u"男"</span>]</span><br><span class="line">girl = data[data[<span class="string">u"性别"</span>] == <span class="string">u"女"</span>]</span><br><span class="line"><span class="comment">#将女生理想TA数据存入boy.txt</span></span><br><span class="line">output = codecs.open(<span class="string">'girl.txt'</span>, <span class="string">'w'</span>,<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="keyword">for</span> want <span class="keyword">in</span> girl[<span class="string">u'理想的TA'</span>]:</span><br><span class="line">    want = want.replace(<span class="string">u'模拟情侣'</span>,<span class="string">''</span>)</span><br><span class="line">    want = want.replace(<span class="string">u'交友'</span>,<span class="string">''</span>)</span><br><span class="line">    output.write(want +<span class="string">'\n'</span>)</span><br><span class="line">output.close()</span><br><span class="line"><span class="comment">#将男生理想TA数据存入boy.txt</span></span><br><span class="line">output1 = codecs.open(<span class="string">'boy.txt'</span>, <span class="string">'w'</span>,<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="keyword">for</span> want <span class="keyword">in</span> boy[<span class="string">u'理想的TA'</span>]:</span><br><span class="line">    output1.write(want +<span class="string">'\n'</span>)</span><br><span class="line">output1.close()</span><br></pre></td></tr></table></figure></p>
+<p>有一点注意的由于用的是python2.7（推荐使用python3），编码问题还是很头痛的。这里引入了codece库处理编码问题，而不是直接打开txt文件。</p>
+<h2 id="生成结果"><a href="#生成结果" class="headerlink" title="生成结果"></a>生成结果</h2><p>数据拿到了，现在我们将文本生成词云。这里我们用到一些库。jieba用来做中文分词，wordcloud用来生成词云。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cycler==0.10.0</span><br><span class="line">jieba==0.38</span><br><span class="line">matplotlib==1.5.3</span><br><span class="line">numpy==1.11.2</span><br><span class="line">pyparsing==2.1.10</span><br><span class="line">python-dateutil==2.5.3</span><br><span class="line">pytz==2016.7</span><br><span class="line">six==1.10.0</span><br><span class="line">wordcloud==1.2.1</span><br></pre></td></tr></table></figure></p>
+<p>由于wordcloud库本身并不直接支持中文，我们需要自己加入一些参数。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud, STOPWORDS</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordCloud_CN</span>:</span></span><br><span class="line">    <span class="string">'''</span><br><span class="line">    use package wordcloud and jieba</span><br><span class="line">    generating wordcloud for chinese character</span><br><span class="line">    '''</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, stopwords_file)</span>:</span></span><br><span class="line">        self.stopwords_file = stopwords_file</span><br><span class="line">        self.text_file = text_file</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_stopwords</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stopwords = &#123;&#125;</span><br><span class="line">        f = open(self.stopwords_file, <span class="string">'r'</span>)</span><br><span class="line">        line = f.readline().rstrip()</span><br><span class="line">        <span class="keyword">while</span> line:</span><br><span class="line">            self.stopwords.setdefault(line, <span class="number">0</span>)</span><br><span class="line">            self.stopwords[line.decode(<span class="string">'utf-8'</span>)] = <span class="number">1</span></span><br><span class="line">            line = f.readline().rstrip()</span><br><span class="line">        f.close()</span><br><span class="line">        <span class="keyword">return</span> self.stopwords</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">seg_text</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">with</span> open(self.text_file) <span class="keyword">as</span> f:</span><br><span class="line">            text = f.readlines()</span><br><span class="line">            text = <span class="string">r' '</span>.join(text)</span><br><span class="line"></span><br><span class="line">            seg_generator = jieba.cut(text)</span><br><span class="line">            self.seg_list = [</span><br><span class="line">                i <span class="keyword">for</span> i <span class="keyword">in</span> seg_generator <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> self.get_stopwords]</span><br><span class="line">            self.seg_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> self.seg_list <span class="keyword">if</span> i != <span class="string">u' '</span>]</span><br><span class="line">            self.seg_list = <span class="string">r' '</span>.join(self.seg_list)</span><br><span class="line">        <span class="keyword">return</span> self.seg_list</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># wordcloud = WordCloud(max_font_size=40, relative_scaling=.5)</span></span><br><span class="line">        wordcloud = WordCloud(font_path=<span class="string">u'./static/simheittf/simhei.ttf'</span>,background_color=<span class="string">"black"</span>, margin=<span class="number">5</span>, width=<span class="number">1800</span>, height=<span class="number">800</span>)</span><br><span class="line"></span><br><span class="line">        wordcloud = wordcloud.generate(self.seg_text)</span><br><span class="line"></span><br><span class="line">        plt.figure()</span><br><span class="line">        plt.imshow(wordcloud)</span><br><span class="line">        plt.axis(<span class="string">"off"</span>)</span><br><span class="line">        plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    stopwords_file = <span class="string">u'./static/stopwords.txt'</span></span><br><span class="line">    text_file = <span class="string">u'boy.txt'</span></span><br><span class="line"></span><br><span class="line">    generater = WordCloud_CN(stopwords_file)</span><br><span class="line">    generater.show()</span><br></pre></td></tr></table></figure></p>
+<p><strong>女生的理想TA</strong><br><img src="http://static.zybuluo.com/nczkevin/zj3izweqy780f86j0194sqla/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-10-23%20%E4%B8%8B%E5%8D%881.09.43.png" alt="屏幕快照 2016-10-23 下午1.09.43.png-1208.2kB"><br><strong>男生的理想TA</strong><br><img src="http://static.zybuluo.com/nczkevin/bm7xooprufaikhm7juigf5xg/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-10-23%20%E4%B8%8B%E5%8D%881.07.31.png" alt="屏幕快照 2016-10-23 下午1.07.31.png-1203.2kB"></p>
+<hr>
+<p>由于数据量太小，暂时还没想到有什么更有趣的分析办法。打算写个爬虫去爬交友或者社交类网站，再做进一步数据分析。</p>
 
       
     </div>
@@ -532,7 +542,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端/" rel="tag">#前端</a>
+            <a href="/tags/python/" rel="tag">#python</a>
           
         </div>
       
@@ -541,17 +551,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/02/机器学习（二） K-近邻算法（kNN）/" rel="next" title="机器学习（二） K-近邻算法（kNN）">
-                <i class="fa fa-chevron-left"></i> 机器学习（二） K-近邻算法（kNN）
+              <a href="/2016/07/24/Git回退版本/" rel="next" title="Git回退版本">
+                <i class="fa fa-chevron-left"></i> Git回退版本
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/24/【转自mactalk】软姐讲机器学习/" rel="prev" title="【转自mactalk】软姐讲机器学习">
-                【转自mactalk】软姐讲机器学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -566,10 +572,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/18/全栈工程师的自我修养——思考/"
-     data-title="全栈工程师的自我修养——思考"
+        <div class="ds-share flat" data-thread-key="2016/10/23/用python分析男女生配对数据生成词云/"
+     data-title="用python分析男女生配对数据生成词云"
      data-content=""
-     data-url="http://yoursite.com/2015/11/18/全栈工程师的自我修养——思考/">
+     data-url="http://yoursite.com/2016/10/23/用python分析男女生配对数据生成词云/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -596,8 +602,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/18/全栈工程师的自我修养——思考/"
-           data-title="全栈工程师的自我修养——思考" data-url="http://yoursite.com/2015/11/18/全栈工程师的自我修养——思考/">
+      <div class="ds-thread" data-thread-key="2016/10/23/用python分析男女生配对数据生成词云/"
+           data-title="用python分析男女生配对数据生成词云" data-url="http://yoursite.com/2016/10/23/用python分析男女生配对数据生成词云/">
       </div>
     
   </div>
@@ -717,7 +723,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#何为全栈工程师"><span class="nav-number">1.</span> <span class="nav-text">何为全栈工程师</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何成为全栈工程师"><span class="nav-number">2.</span> <span class="nav-text">如何成为全栈工程师</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程师之路"><span class="nav-number"></span> <span class="nav-text">工程师之路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#积累作品集"><span class="nav-number">0.1.</span> <span class="nav-text">积累作品集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#理解编程语言"><span class="nav-number">0.2.</span> <span class="nav-text">理解编程语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件设计方法"><span class="nav-number">0.3.</span> <span class="nav-text">软件设计方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高效工程师"><span class="nav-number">0.4.</span> <span class="nav-text">高效工程师</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学习设计"><span class="nav-number">0.5.</span> <span class="nav-text">学习设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管理与沟通"><span class="nav-number">0.6.</span> <span class="nav-text">管理与沟通</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析数据"><span class="nav-number">1.</span> <span class="nav-text">分析数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成结果"><span class="nav-number">2.</span> <span class="nav-text">生成结果</span></a></li></ol></div>
             
           </div>
         </section>
