@@ -86,16 +86,19 @@
 
 
 
-<meta name="description" content="思考一下下面的代码12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quot">
+<meta name="description" content="思考一下下面的代码
+12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解javascript——this">
 <meta property="og:url" content="http://yoursite.com/2016/11/30/理解javascript——this/index.html">
 <meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
-<meta property="og:description" content="思考一下下面的代码12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quot">
-<meta property="og:updated_time" content="2016-11-30T15:29:51.000Z">
+<meta property="og:description" content="思考一下下面的代码
+12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quo">
+<meta property="og:updated_time" content="2016-11-30T15:46:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解javascript——this">
-<meta name="twitter:description" content="思考一下下面的代码12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quot">
+<meta name="twitter:description" content="思考一下下面的代码
+12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quo">
 
 
 
@@ -484,8 +487,18 @@
       
 
       
-        <p>思考一下下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(num) &#123;</span><br><span class="line">	console.log( &quot;foo: &quot; + num );</span><br><span class="line">	// 记录foo被调用的次数</span><br><span class="line">	this.count++;</span><br><span class="line">	&#125;</span><br><span class="line">	foo.count = 0;</span><br><span class="line">	var i;</span><br><span class="line">	for (i=0; i10; i++)=&quot;&quot; &#123;=&quot;&quot; if=&quot;&quot; (i=&quot;&quot;&gt; 5) &#123;</span><br><span class="line">		foo( i );</span><br><span class="line">	&#125;&#125;</span><br><span class="line">	// foo: 6</span><br><span class="line">	// foo: 7</span><br><span class="line">	// foo: 8</span><br><span class="line">	// foo: 9</span><br><span class="line">	// foo被调用了多少次？</span><br><span class="line">	console.log( foo.count ); // 0 -- WTF?10;&gt;</span><br></pre></td></tr></table></figure></p>
+        <p>思考一下下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(num) &#123;</span><br><span class="line">	console.log( &quot;foo: &quot; + num );</span><br><span class="line">	// 记录foo被调用的次数</span><br><span class="line">	this.count++;</span><br><span class="line">	&#125;</span><br><span class="line">	foo.count = 0;</span><br><span class="line">	var i;</span><br><span class="line">	for (i=0; i10; i++)=&quot;&quot; &#123;=&quot;&quot; if=&quot;&quot; (i=&quot;&quot;&gt; 5) &#123;</span><br><span class="line">		foo( i );</span><br><span class="line">	&#125;&#125;</span><br><span class="line">	// foo: 6</span><br><span class="line">	// foo: 7</span><br><span class="line">	// foo: 8</span><br><span class="line">	// foo: 9</span><br><span class="line">	// foo被调用了多少次？</span><br><span class="line">	console.log( foo.count ); // 0 -- WTF?10;&gt;</span><br></pre></td></tr></table></figure>
 <p>console.log语句产生了4条输出，证明foo(..)确实被调用了4次，但是foo.count仍然是0。显然从字面意思来理解this是错误的。执行foo.count = 0时，的确向函数对象foo添加了一个属性count。但是函数内部代码this.count中的this并不是指向那个函数对象，所以虽然属性名相同，根对象却并不相同，困惑随之产生。</p>
+<p>“如果要判断一个运行中函数的this绑定，就需要找到这个函数的直接调用位置。找到之后就可以顺序应用下面这四条规则来判断this的绑定对象。</p>
+<ol>
+<li>由new调用？绑定到新创建的对象。</li>
+<li>由call或者apply（或者bind）调用？绑定到指定的对象。</li>
+<li>由上下文对象调用？绑定到那个上下文对象。</li>
+<li>默认：在严格模式下绑定到undefined，否则绑定到全局对象。</li>
+</ol>
+<p>一定要注意，有些调用可能在无意中使用默认绑定规则。如果想“更安全”地忽略this绑定，你可以使用一个DMZ对象，比如ø = Object.create(null)，以保护全局对象。</p>
+<p>ES6中的箭头函数并不会使用四条标准的绑定规则，而是根据当前的词法作用域来决定this，具体来说，箭头函数会继承外层函数调用的this绑定（无论this绑定到什么）。</p>
 
       
     </div>
