@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -86,15 +86,16 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="浪潮之巅| NCZkevin Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/07/index.html">
+<meta name="description" content="思考一下下面的代码12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解javascript——this">
+<meta property="og:url" content="http://yoursite.com/2016/11/30/理解javascript——this/index.html">
 <meta property="og:site_name" content="浪潮之巅| NCZkevin Blog">
-<meta property="og:description">
+<meta property="og:description" content="思考一下下面的代码12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quot">
+<meta property="og:updated_time" content="2016-11-30T15:29:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浪潮之巅| NCZkevin Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="理解javascript——this">
+<meta name="twitter:description" content="思考一下下面的代码12345678910111213141516function foo(num) &amp;#123;	console.log( &amp;quot;foo: &amp;quot; + num );	// 记录foo被调用的次数	this.count++;	&amp;#125;	foo.count = 0;	var i;	for (i=0; i10; i++)=&amp;quot;&amp;quot; &amp;#123;=&amp;quot">
 
 
 
@@ -112,7 +113,7 @@
   };
 </script>
 
-  <title> 归档 | 浪潮之巅| NCZkevin Blog </title>
+  <title> 理解javascript——this | 浪潮之巅| NCZkevin Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +144,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -391,65 +392,176 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 32 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                理解javascript——this
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-30T23:06:29+08:00" content="2016-11-30">
+              2016-11-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程之路/" itemprop="url" rel="index">
+                    <span itemprop="name">编程之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/30/理解javascript——this/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/理解javascript——this/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>思考一下下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(num) &#123;</span><br><span class="line">	console.log( &quot;foo: &quot; + num );</span><br><span class="line">	// 记录foo被调用的次数</span><br><span class="line">	this.count++;</span><br><span class="line">	&#125;</span><br><span class="line">	foo.count = 0;</span><br><span class="line">	var i;</span><br><span class="line">	for (i=0; i10; i++)=&quot;&quot; &#123;=&quot;&quot; if=&quot;&quot; (i=&quot;&quot;&gt; 5) &#123;</span><br><span class="line">		foo( i );</span><br><span class="line">	&#125;&#125;</span><br><span class="line">	// foo: 6</span><br><span class="line">	// foo: 7</span><br><span class="line">	// foo: 8</span><br><span class="line">	// foo: 9</span><br><span class="line">	// foo被调用了多少次？</span><br><span class="line">	console.log( foo.count ); // 0 -- WTF?10;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>console.log语句产生了4条输出，证明foo(..)确实被调用了4次，但是foo.count仍然是0。显然从字面意思来理解this是错误的。执行foo.count = 0时，的确向函数对象foo添加了一个属性count。但是函数内部代码this.count中的this并不是指向那个函数对象，所以虽然属性名相同，根对象却并不相同，困惑随之产生。</p>
+
+      
+    </div>
+    
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="NCZkevin wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
+          
         </div>
       
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/23/用python分析男女生配对数据生成词云/" rel="next" title="用python分析男女生配对数据生成词云">
+                <i class="fa fa-chevron-left"></i> 用python分析男女生配对数据生成词云
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/24/Git回退版本/" itemprop="url">
-              
-                <span itemprop="name">Git回退版本</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-24T15:04:14+08:00"
-              content="2016-07-24" >
-          07-24
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/30/理解javascript——this/"
+     data-title="理解javascript——this"
+     data-content=""
+     data-url="http://yoursite.com/2016/11/30/理解javascript——this/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  </section>
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -457,6 +569,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/30/理解javascript——this/"
+           data-title="理解javascript——this" data-url="http://yoursite.com/2016/11/30/理解javascript——this/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -476,8 +596,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avtar.jpg"
@@ -556,6 +685,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -675,11 +815,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
